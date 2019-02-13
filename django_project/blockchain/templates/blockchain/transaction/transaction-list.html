@@ -1,0 +1,24 @@
+{% extends "blockchain/base.html" %}
+{% block content %}
+{% for transaction in transactions%}
+
+
+<!--BASE TRANSACTION-->
+<article class="media content-section">
+     <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2" href="#">{{ transaction.author }}</a>
+
+            <!--Django Date Filters: https://docs.djangoproject.com/en/2.0/ref/templates/builtins/#date-->
+            <small class="text-muted">{{ transaction.date_posted|date:"F d, Y" }}</small>
+
+        </div>
+        <h2><a class="article-title" href="{% url 'blockchain-transaction-details' transaction.id %}">{{ transaction.title }}</a></h2>
+        <p class="article-content">{{ transaction.block_index }}</p>
+    </div>
+</article>
+<!--END OF THE BASE TRANSACTION-->
+
+
+{% endfor %}
+{% endblock content %}
