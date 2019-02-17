@@ -32,14 +32,14 @@ class BlocksListView(ListView):
     template_name = 'blockchain/block/block-list.html'
     context_object_name = 'blocks'
     ordering = ['-date_posted']
-    paginate_by = 5
+    paginate_by = 9
 
 
 class UserBlockListView(ListView):
     model = Block
     template_name = 'blockchain/user-blocks.html'
     context_object_name = 'blocks'
-    paginate_by = 5
+    paginate_by = 9
 
     def get_queryset(self):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
@@ -169,14 +169,14 @@ class TransactionsListView(ListView):
     template_name = 'blockchain/transaction/transaction-list.html'
     context_object_name = 'transactions'
     ordering = ['-date_posted']
-    paginate_by = 5
+    paginate_by = 9
 
 
 class UserTransactionListView(ListView):
     model = Transaction
     template_name = 'blockchain/transaction/user-transaction.html'
     context_object_name = 'transactions'
-    paginate_by = 5
+    paginate_by = 9
 
     def get_queryset(self):
         user = get_object_or_404(User, username=self.kwargs.get('username'))

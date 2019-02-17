@@ -19,7 +19,8 @@ from .views import (
 
 urlpatterns = [
     # DEFAULT
-    path('', views.home, name='blockchain-home'),
+    path('', BlocksListView.as_view(), name='blockchain-home'),
+    path('', BlocksListView.as_view(), name='blockchain-blocks'),
     path('about/', views.about, name='blockchain-about'),
     # BLOCK
     path('blocks/', BlocksListView.as_view(), name='blockchain-blocks'),

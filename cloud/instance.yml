@@ -1,0 +1,4 @@
+instance:
+     name: new
+     zone: europe-west3-c
+     machine-type: f1-micro

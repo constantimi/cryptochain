@@ -6,19 +6,61 @@
 <!--BASE TRANSACTION-->
 <article class="media content-section">
      <div class="media-body">
-        <div class="article-metadata">
-            <a class="mr-2" href="#">{{ transaction.author }}</a>
 
-            <!--Django Date Filters: https://docs.djangoproject.com/en/2.0/ref/templates/builtins/#date-->
-            <small class="text-muted">{{ transaction.date_posted|date:"F d, Y" }}</small>
+        <div class="table-responsive text-nowrap">
+            <p class="title_bk_tx"><span class="fab fa-ethereum fa-lg" ></span>   <a class="article-title" href="{% url 'blockchain-transaction-details' transaction.id %}">{{ transaction.title }}</a></p>
+        <table class="table">
+            <tbody class="">
+            <tr class="">
+                <th scope="col">BLOCK NUMBER</th>
+                <th scope="col">GAS</th>
+                <th scope="col">GAS PRICE</th>
+                <th scope="col">MANED ON</th>
+                <th scope="col">HASH</th>
+            </tr>
+            <tr>
+                <td scope="col">{{ transaction.block_number }}</td>
+                <td scope="col">{{ transaction.gas }}</td>
+                <td scope="col">{{ transaction.gas_price}}</td>
+                <td scope="col">{{ transaction.date_posted|date:"d/m/Y H:i:s" }}</td>
+                <td id = "hash_id" scope="col">{{ transaction.hash }}</td>
 
+            </tr>
+            </tbody>
+        </table>
         </div>
-        <h2><a class="article-title" href="{% url 'blockchain-transaction-details' transaction.id %}">{{ transaction.title }}</a></h2>
-        <p class="article-content">{{ transaction.block_index }}</p>
     </div>
 </article>
 <!--END OF THE BASE TRANSACTION-->
 
 
 {% endfor %}
+
+
+<!--PAGINATOR OF THE PAGE-->
+
+
+{% if is_paginated %}
+{% if page_obj.has_previous %}
+<a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+<a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+{% endif%}
+
+{% for num in page_obj.paginator.page_range %}
+{% if page_obj.number == num %}
+<a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+{% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+<a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+{% endif%}
+{% endfor%}
+
+{% if page_obj.has_next %}
+<a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+<a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+{% endif%}
+
+<!--END OF PAGINATOR-->
+
+{% endif %}
+
 {% endblock content %}

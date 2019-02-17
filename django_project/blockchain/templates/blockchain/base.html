@@ -7,7 +7,6 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 
-
     <!-- Bootstrap CSS -->
     <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" rel="stylesheet">
@@ -33,8 +32,8 @@
 <!--NAVIGATION BLOCK-->
 <header class="site-header">
     <nav class="navbar navbar-expand-lg navbar-dark bg-steel fixed-top">
-        <a class="navbar-brand mr-2" href="{% url 'blockchain-home' %}"><i class="fas fa-code"></i></a>
-        <div class="container">
+         <div class="container" >
+            <a class="navbar-brand mr-2" href="{% url 'blockchain-blocks' %}"><i class="fas fa-code"></i></a>
 
             <button aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation"
                     class="navbar-toggler"
@@ -59,12 +58,13 @@
                             <a class="dropdown-item" href="{% url 'blockchain-about'%}">About</a>
                         </div>
                     </li>
-                    <!--<a class="nav-item nav-link" href="{% url 'blockchain-home' %}">Home</a>-->
+                    <!--<a class="nav-item nav-link" href="{% url 'blockchain-blocks' %}">Home</a>-->
                     <a class="nav-item nav-link" href="{% url 'blockchain-blocks' %}"><i
                             class="fas fa-th-large mr-1 icons"></i>Blocks</a>
                     <a class="nav-item nav-link" href="{% url 'blockchain-transactions' %}"><i
                             class="fas fa-microchip mr-1 icons"></i>Transactions</a>
                     <!--<a class="nav-item nav-link" href="{% url 'blockchain-about' %}">About</a>-->
+                    <!--<a class="nav-item nav-link" href="#"><i class="fas fa-sync-alt"></i></a>-->
 
                     {% else %}
                     <a class="nav-item nav-link mr-1" href="{% url 'login' %}"><i class="fab fa-bitcoin mr-1"></i>Login</a>
@@ -98,25 +98,25 @@
 
 
 <!--RIDHT SIDE BLOCK-->
-<main class="container" role="main">
-    <div class="row">
-        <div class="col-md-8">
+<main class="container" role="main" >
+    <!--<div class="row">-->
+        <!--<div class="col-md-8">-->
             {% block content %}{% endblock %}
-        </div>
-        <div class="col-md-4">
-            <div class="content-section">
-                <h3>Our Sidebar</h3>
-                <p class='text-muted'>I will put any information here I'd like.
-                <ul class="list-group">
-                    <li class="list-group-item list-group-item-light">Latest Transactions</li>
-                    <li class="list-group-item list-group-item-light">Announcements</li>
-                    <li class="list-group-item list-group-item-light">Wallet</li>
-                    <li class="list-group-item list-group-item-light">etc</li>
-                </ul>
-                </p>
-            </div>
-        </div>
-    </div>
+        <!--</div>-->
+        <!--<div class="col-md-4">-->
+            <!--<div class="content-section">-->
+                <!--<h3>Our Sidebar</h3>-->
+                <!--<p class='text-muted'>I will put any information here I'd like.-->
+                <!--<ul class="list-group">-->
+                    <!--<li class="list-group-item list-group-item-light">Latest Transactions</li>-->
+                    <!--<li class="list-group-item list-group-item-light">Announcements</li>-->
+                    <!--<li class="list-group-item list-group-item-light">Wallet</li>-->
+                    <!--<li class="list-group-item list-group-item-light">etc</li>-->
+                <!--</ul>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
 </main>
 <!--END OF RIGHT SIDE BLOCK-->
 
