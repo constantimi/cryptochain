@@ -1,1 +1,2 @@
-/usr/lib/python3.6/collections/abc.py
+from _collections_abc import *
+from _collections_abc import __all__

@@ -1,0 +1,5 @@
+cluster:
+     name: thesis-cluster1
+     zone: europe-west2-c
+     num-nodes: 2
+     machine-type: g1-small

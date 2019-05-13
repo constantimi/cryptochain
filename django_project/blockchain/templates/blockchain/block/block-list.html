@@ -1,5 +1,6 @@
 {% extends "blockchain/base.html" %}
 {% block content %}
+{% if user.is_authenticated %}
 {% for block in blocks%}
 
 
@@ -8,7 +9,7 @@
 <article class="media content-section">
     <div class="media-body">
         <!--<div class="article-metadata">-->
-        <!--<a class="mr-2" href="#">{{ block.author }}</a>-->
+        <a class="mr-2" href="#">{{ block.author }}</a>
 
         <!--Django Date Filters: https://docs.djangoproject.com/en/2.0/ref/templates/builtins/#date-->
         <!--<small class="text-muted">{{ block.date_posted|date:"d m Y" }}</small>-->
@@ -69,5 +70,5 @@
 
 <!--END OF PAGINATOR-->
 
-
+{% endif %}
 {% endblock content %}

@@ -24,11 +24,12 @@ SECRET_KEY = '4#03c8xrzk!7tm+4g&9lj8x&d)5)cw(aj*m@%4d!^zhrt&1s9$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+""" Allowing hosts / Use with VM """
+ ALLOWED_HOSTS = [os.environ['MY_POD_IP'],'app-site','34.95.86.187']
 
-# Application definition
-
+# APPLICATION DEFINITION
 INSTALLED_APPS = [
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -37,9 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blockchain.apps.BlockchainConfig',
     'users.apps.UsersConfig',
+    'django_celery_results',
     'rest_framework',
     'crispy_forms',
+
 ]
+
+CELERY_RESULT_BACKEND = 'django-db'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -56,7 +61,7 @@ ROOT_URLCONF = 'django_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR, os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,22 +81,23 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'django_project.wsgi.application'
 
-# Database
-# https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
+# DATABASE
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'blockchain',
-        'USER': 'blockchainuser',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
-        'PORT': '',
+       'ENGINE': 'django.db.backends.postgresql_psycopg2',
+       # 'NAME': 'blockchain',
+       # 'USER': 'blockchainuser',
+       # 'PASSWORD': 'password',
+       # 'HOST': 'localhost',
+       # 'PORT': '',
+
+         'NAME': os.environ['DB_NAME'],
+         'USER': os.environ['DB_USERNAME'],
+         'PASSWORD': os.environ['DB_PASSWORD'],
+         'HOST': os.environ['DB_HOSTNAME'],
+         'PORT': '',
     }
 }
-
-# Password validation
-# https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -107,6 +113,15 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Setting the renderers
+# https://www.django-rest-framework.org/api-guide/renderers/#setting-the-renderers
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    )
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/

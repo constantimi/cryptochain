@@ -1,0 +1,8 @@
+SQL:
+     name: thesis1
+     zone: europe-west2-c
+     database-version: POSTGRES_9_6
+     password: docker
+     cpu: 1
+     memory: 3840MiB
+     tier: db-f1-micro

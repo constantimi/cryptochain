@@ -1,13 +1,12 @@
 import hashlib
-from django.contrib.auth.models import User
-from django.contrib.postgres.fields import ArrayField
+import time
+
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
-import time
 
 
-# Default method for generating hash
+"""Default method for generating hash"""
 
 
 def create_hash():
@@ -17,26 +16,25 @@ def create_hash():
     return h.hexdigest()[:-10]
 
 
-# One-Many User -> Blocks
-
 class Block(models.Model):
+    """a block from blockchain"""
     title = models.CharField(max_length=255, null=True)
-    date_posted = models.DateTimeField(default=timezone.now, null=True, editable=False)
+    date_posted = models.DateTimeField(default=timezone.localtime(timezone.now()), null=True, editable=True)
     # author = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
 
-    # block content
     hash = models.CharField(max_length=255, default=create_hash, null=True, blank=True)
     previous_block = models.CharField(max_length=255, null=True, blank=True)
     merkle_root = models.CharField(blank=True, null=True, max_length=255)
-    time = models.DateTimeField(default=timezone.now, editable=True)
+    time = models.DateTimeField(default=timezone.localtime(timezone.now()), editable=True)
     fee = models.BigIntegerField(auto_created=True, null=True, blank=True)
-    nonce = models.CharField(max_length=255, auto_created=True, null=True, blank=True)
+    nonce = models.CharField(max_length=255, null=True, blank=True)
     n_tx = models.BigIntegerField(auto_created=True, null=True, blank=True)
     size = models.BigIntegerField(auto_created=True, null=True, blank=True)
     block_index = models.BigIntegerField(auto_created=True, null=True, blank=True)
     height = models.BigIntegerField(auto_created=True, null=True, blank=True)
     received_time = models.BigIntegerField(auto_created=True, null=True, blank=True)
 
+    @property
     def __str__(self):
         return self.title
 
@@ -48,23 +46,31 @@ class Block(models.Model):
 
 
 class Transaction(models.Model):
+    """a transaction from blockchain"""
     title = models.CharField(max_length=255, null=True)
-    date_posted = models.DateTimeField(default=timezone.now, null=True, editable=False)
-    # author = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    date_posted = models.DateTimeField(default=timezone.localtime(timezone.now()), null=True, editable=True)
 
-    # transaction content
     hash = models.TextField(max_length=255, default=create_hash, null=True, blank=True)
     nonce = models.CharField(max_length=255, auto_created=True, null=True, blank=True)
     block_hash = models.TextField(max_length=255, null=True, blank=True)
-    block_number = models.BigIntegerField(auto_created=True, blank=True)
-    tx_index = models.BigIntegerField(auto_created=True, blank=True)
-    time = models.DateTimeField(default=timezone.now,editable=False)
-    belonging_to = models.TextField(blank=True, max_length=255)
-    relayed_by = models.TextField(blank=True, max_length=255)
-    value = models.BigIntegerField(auto_created=True, blank=True)
-    gas = models.BigIntegerField(auto_created=True, blank=True)
-    gas_price = models.BigIntegerField(auto_created=True, blank=True)
+    block_number = models.BigIntegerField(auto_created=True, null=True, blank=True)
+    tx_index = models.BigIntegerField(auto_created=True, null=True, blank=True)
+    time = models.DateTimeField(default=timezone.localtime(timezone.now()), editable=True)
+    belonging_to = models.TextField(blank=True, null=True, max_length=255)
+    relayed_by = models.TextField(blank=True, null=True, max_length=255)
+    value = models.CharField(max_length=255, auto_created=True, null=True, blank=True)
+    gas = models.BigIntegerField(auto_created=True, blank=True, null=True)
+    gas_price = models.BigIntegerField(auto_created=True, blank=True, null=True)
     inputs = models.TextField(max_length=255, null=True, blank=True)
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('blockchain-transaction-details', kwargs={'pk': self.pk})
+
+    def flush(self):
+        pass
 
 
 class Input(models.Model):

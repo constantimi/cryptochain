@@ -2,21 +2,25 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 
 """SERIALIZER & JSON IMPORTS"""
+from rest_framework import generics
+from . import models
+from . import serializers
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
+
+# must be deleted
 from django.views.generic import (ListView, CreateView, UpdateView, DetailView, DeleteView)
+
 from rest_framework.parsers import JSONParser
 
 from .models import Block, Transaction
 from .serializers import BlockSerializer
 
-
 """DEFAULT VIEWS"""
 
 
 def home(request):
-
     return render(request, 'blockchain/home.html')
 
 
@@ -27,12 +31,29 @@ def about(request):
 """BLOCKS VIEWS"""
 
 
-class BlocksListView(ListView):
+class BlocksListView(generics.ListCreateAPIView):
+    """
+     A view that returns the count of active users in JSON.
+    """
+    queryset = models.Block.objects.all()
+    serializer_class = serializers.BlockSerializer
+
     model = Block
     template_name = 'blockchain/block/block-list.html'
     context_object_name = 'blocks'
     ordering = ['-date_posted']
     paginate_by = 9
+
+
+class BlockDetailView(generics.RetrieveUpdateDestroyAPIView):
+    """
+     A view that returns the count of active users in JSON.
+    """
+    queryset = models.Block.objects.all()
+    serializer_class = serializers.BlockSerializer
+
+    model = Block
+    template_name = 'blockchain/block/block-details.html'
 
 
 class UserBlockListView(ListView):
@@ -44,11 +65,6 @@ class UserBlockListView(ListView):
     def get_queryset(self):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
         return Block.objects.filter(author=user).order_by('-date_posted')
-
-
-class BlockDetailView(DetailView):
-    model = Block
-    template_name = 'blockchain/block/block-details.html'
 
 
 class BlockCreateView(LoginRequiredMixin, CreateView):
@@ -164,12 +180,29 @@ def block_detail(request, pk):
 """TRANSACTIONS VIEW"""
 
 
-class TransactionsListView(ListView):
+class TransactionsListView(generics.ListCreateAPIView):
+    """
+     A view that returns the count of active users in JSON.
+    """
+    queryset = models.Transaction.objects.all()
+    serializer_class = serializers.TransactionSerializer
+
     model = Transaction
     template_name = 'blockchain/transaction/transaction-list.html'
     context_object_name = 'transactions'
     ordering = ['-date_posted']
     paginate_by = 9
+
+
+class TransactionDetailView(generics.RetrieveUpdateDestroyAPIView):
+    """
+     A view that returns the count of active users in JSON.
+    """
+    queryset = models.Transaction.objects.all()
+    serializer_class = serializers.TransactionSerializer
+
+    model = Transaction
+    template_name = 'blockchain/transaction/transaction-details.html'
 
 
 class UserTransactionListView(ListView):
@@ -181,11 +214,6 @@ class UserTransactionListView(ListView):
     def get_queryset(self):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
         return Transaction.objects.filter(author=user).order_by('-date_posted')
-
-
-class TransactionDetailView(DetailView):
-    model = Transaction
-    template_name = 'blockchain/transaction/transaction-details.html'
 
 
 class TransactionCreateView(LoginRequiredMixin, CreateView):
@@ -249,3 +277,46 @@ class TransactionDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView)
         if self.request.user == transaction.author:
             return True
         return False
+
+
+"""SERIALIZER TRANSACTION VIEWS"""
+
+
+@csrf_exempt
+def transaction_list(request):
+    if request.method == 'GET':
+        transactions = Transaction.objects.all()
+        serializer = TransactionSerializer(transactions, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+    elif request.method == 'POST':
+        data = JSONParser().parse(request)
+        serializer = TransactionSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=201)
+        return JsonResponse(serializer.errors, status=400)
+
+
+@csrf_exempt
+def transaction_detail(request, pk):
+    try:
+        transaction = Transaction.objects.get(pk=pk)
+    except:
+        return HttpResponse(status=404)
+
+    if request.method == 'GET':
+        serializer = TransactionSerializer(transaction)
+        return JsonResponse(serializer.data)
+
+    elif request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = TransactionSerializer(transaction, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data)
+        return JsonResponse(serializer.errors, status=400)
+
+    elif request.method == 'DELETE':
+        transaction.delete()
+        return HttpResponse(status=204)

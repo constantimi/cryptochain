@@ -1,5 +1,0 @@
-cluster:
-     name: new-cluster
-     zone: europe-west3-c
-     num-nodes: 3
-     machine-type: f1-micro

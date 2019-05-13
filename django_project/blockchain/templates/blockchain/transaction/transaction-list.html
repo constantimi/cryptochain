@@ -1,5 +1,6 @@
 {% extends "blockchain/base.html" %}
 {% block content %}
+{% if user.is_authenticated %}
 {% for transaction in transactions%}
 
 
@@ -62,5 +63,5 @@
 <!--END OF PAGINATOR-->
 
 {% endif %}
-
+{% endif %}
 {% endblock content %}

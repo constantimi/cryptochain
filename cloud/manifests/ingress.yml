@@ -1,0 +1,9 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata: {name: app}
+spec:
+  rules:
+  - http:
+      paths:
+      - backend: {serviceName: app, servicePort: 31000}
+        path: /api/*
