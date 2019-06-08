@@ -10,12 +10,12 @@ from django.shortcuts import render, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 
 # must be deleted
-from django.views.generic import (ListView, CreateView, UpdateView, DetailView, DeleteView)
+from django.views.generic import (ListView, UpdateView, DeleteView)
 
 from rest_framework.parsers import JSONParser
 
-from .models import Block, Transaction
-from .serializers import BlockSerializer
+from .models import Block, Transaction, Input, Output
+from .serializers import BlockSerializer, TransactionSerializer, InputSerializer, OutputSerializer
 
 """DEFAULT VIEWS"""
 
@@ -67,47 +67,23 @@ class UserBlockListView(ListView):
         return Block.objects.filter(author=user).order_by('-date_posted')
 
 
-class BlockCreateView(LoginRequiredMixin, CreateView):
-    model = Block
-    template_name = 'blockchain/block/block-form.html'
-    fields = [
-        'title',
-        'hash',
-        'previous_block',
-        'merkle_root',
-        'time',
-        'bits',
-        'fee',
-        'nonce',
-        'n_tx',
-        'size',
-        'block_index',
-        'height',
-        'received_time'
-    ]
-
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
-
-
 class BlockUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Block
     template_name = 'blockchain/block/block-update.html'
     fields = [
-        'title',
-        'hash',
-        'previous_block',
-        'merkle_root',
-        'time',
-        'bits',
-        'fee',
-        'nonce',
-        'n_tx',
-        'size',
-        'block_index',
-        'height',
-        'received_time'
+            'title',
+            'hash',
+            'currency',
+            'previous_block',
+            'merkle_root',
+            'time',
+            'nonce',
+            'difficulty',
+            'n_tx',
+            'size',
+            'block_index',
+            'height',
+            'received_time'
     ]
 
     def form_valid(self, form):
@@ -216,43 +192,28 @@ class UserTransactionListView(ListView):
         return Transaction.objects.filter(author=user).order_by('-date_posted')
 
 
-class TransactionCreateView(LoginRequiredMixin, CreateView):
-    model = Transaction
-    template_name = 'blockchain/transaction/transaction-form.html'
-    fields = [
-        'title',
-        'double_spend',
-        'block_height',
-        'time',
-        'relayed_by',
-        'hash',
-        'tx_index',
-        'version',
-        'size',
-        'inputs',
-        'outputs'
-    ]
-
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
-
-
 class TransactionUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Transaction
     template_name = 'blockchain/transaction/transaction-update.html'
     fields = [
-        'title',
-        'double_spend',
-        'block_height',
-        'time',
-        'relayed_by',
-        'hash',
-        'tx_index',
-        'version',
-        'size',
-        'inputs',
-        'outputs'
+            'fee',
+            'currency',
+            'nonce',
+            'block_number',
+            'tx_index',
+            'time',
+            'value',
+            'gas',
+            'gas_price',
+            'id',
+            'title',
+            'date_posted',
+            'hash',
+            'block_hash',
+            'belonging_to',
+            'relayed_by',
+            'inputs',
+            'outputs'
     ]
 
     def form_valid(self, form):
@@ -319,4 +280,144 @@ def transaction_detail(request, pk):
 
     elif request.method == 'DELETE':
         transaction.delete()
+        return HttpResponse(status=204)
+
+
+"""INPUT VIEWS"""
+
+
+class InputsListView(generics.ListCreateAPIView):
+    """
+     A view that returns the count of active users in JSON.
+    """
+    queryset = models.Input.objects.all()
+    serializer_class = serializers.InputSerializer
+
+    model = Input
+
+    """ To-Do a template"""
+
+
+class InputDetailView(generics.RetrieveUpdateDestroyAPIView):
+    """
+     A view that returns the count of active users in JSON.
+    """
+    queryset = models.Input.objects.all()
+    serializer_class = serializers.InputSerializer
+
+    model = Input
+
+    """ To-Do a template"""
+
+
+"""SERIALIZER INPUT VIEWS"""
+
+
+@csrf_exempt
+def input_list(request):
+    if request.method == 'GET':
+        inputs = Input.objects.all()
+        serializer = InputSerializer(inputs, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+    elif request.method == 'POST':
+        data = JSONParser().parse(request)
+        serializer = InputSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=201)
+        return JsonResponse(serializer.errors, status=400)
+
+
+@csrf_exempt
+def input_detail(request, pk):
+    try:
+        input = Input.objects.get(pk=pk)
+    except:
+        return HttpResponse(status=404)
+
+    if request.method == 'GET':
+        serializer = InputSerializer(input)
+        return JsonResponse(serializer.data)
+
+    elif request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = InputSerializer(input, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data)
+        return JsonResponse(serializer.errors, status=400)
+
+    elif request.method == 'DELETE':
+        input.delete()
+        return HttpResponse(status=204)
+
+
+"""OUTPUT VIEWS"""
+
+
+class OutputsListView(generics.ListCreateAPIView):
+    """
+     A view that returns the count of active users in JSON.
+    """
+    queryset = models.Output.objects.all()
+    serializer_class = serializers.OutputSerializer
+
+    model = Output
+
+    """ To-Do a template"""
+
+
+class OutputDetailView(generics.RetrieveUpdateDestroyAPIView):
+    """
+     A view that returns the count of active users in JSON.
+    """
+    queryset = models.Output.objects.all()
+    serializer_class = serializers.OutputSerializer
+
+    model = Output
+
+    """ To-Do a template"""
+
+
+"""SERIALIZER OUTPUT VIEWS"""
+
+
+@csrf_exempt
+def output_list(request):
+    if request.method == 'GET':
+        outputs = Output.objects.all()
+        serializer = OutputSerializer(outputs, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+    elif request.method == 'POST':
+        data = JSONParser().parse(request)
+        serializer = OutputSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=201)
+        return JsonResponse(serializer.errors, status=400)
+
+
+@csrf_exempt
+def output_detail(request, pk):
+    try:
+        output = Output.objects.get(pk=pk)
+    except:
+        return HttpResponse(status=404)
+
+    if request.method == 'GET':
+        serializer = OutputSerializer(output)
+        return JsonResponse(serializer.data)
+
+    elif request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = OutputSerializer(output, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data)
+        return JsonResponse(serializer.errors, status=400)
+
+    elif request.method == 'DELETE':
+        output.delete()
         return HttpResponse(status=204)

@@ -1,7 +1,12 @@
 body {
-  background: #fafafa;
+  height: 100%;
+  background: #FAF8F5;
   color: #333333;
   margin-top: 5rem;
+}
+
+.navbar {
+    background-color: #413D3A;
 }
 
 h1, h2, h3, h4, h5, h6 {

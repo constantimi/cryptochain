@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/2.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
-
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -24,8 +23,8 @@ SECRET_KEY = '4#03c8xrzk!7tm+4g&9lj8x&d)5)cw(aj*m@%4d!^zhrt&1s9$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-""" Allowing hosts / Use with VM """
- ALLOWED_HOSTS = [os.environ['MY_POD_IP'],'app-site','34.95.86.187']
+# """ Allowing hosts / Use with VM """
+# ALLOWED_HOSTS = [os.environ['MY_POD_IP'],'app-site','34.95.86.187']
 
 # APPLICATION DEFINITION
 INSTALLED_APPS = [
@@ -40,15 +39,18 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'django_celery_results',
     'rest_framework',
+    'corsheaders',
     'crispy_forms',
 
 ]
 
+CORS_ORIGIN_ALLOW_ALL = True
 CELERY_RESULT_BACKEND = 'django-db'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -85,17 +87,17 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-       # 'NAME': 'blockchain',
-       # 'USER': 'blockchainuser',
-       # 'PASSWORD': 'password',
-       # 'HOST': 'localhost',
-       # 'PORT': '',
+       'NAME': 'blockchain',
+       'USER': 'blockchainuser',
+       'PASSWORD': 'password',
+       'HOST': 'localhost',
+       'PORT': '',
 
-         'NAME': os.environ['DB_NAME'],
-         'USER': os.environ['DB_USERNAME'],
-         'PASSWORD': os.environ['DB_PASSWORD'],
-         'HOST': os.environ['DB_HOSTNAME'],
-         'PORT': '',
+       # 'NAME': os.environ['DB_NAME'],
+       # 'USER': os.environ['DB_USERNAME'],
+       # 'PASSWORD': os.environ['DB_PASSWORD'],
+       # 'HOST': os.environ['DB_HOSTNAME'],
+       # 'PORT': '',
     }
 }
 

@@ -1,0 +1,90 @@
+/* Variables */
+
+$black: #010000;
+$white: #F5F5F5;
+$red: #ff1755;
+$blue: #7a7ab7;
+$grey: #6C6866;
+
+$lightGrey: #e6e6e6;
+$darkGrey: #333;
+
+$lightBraun: #413D3A;
+$darkBraun: #34302D;
+
+$lightBlue: #1E262E;
+$darkBlue: #1C2023;
+
+$pageBackground: #FAF8F5;
+
+$paginationColor: #6b88a4;
+$paginationBorder: #ced4da;
+$paginationBackground: #f4f4f4;
+$pageItemColor: #445565;
+$pageBorder: #ced4da;
+$pageItemBackground: #e3e7eb;
+
+$input-font-size: 14px;
+$input-line-height: 14px;
+$input-color: #fbc91b;
+
+$font-family: Roboto Slab, Sans-serif;
+$generic-family: Lucida Console, Monospace;
+
+/* Mixins */
+
+@mixin translateY($e) {
+  -webkit-transform: translateY($e);
+  -moz-transform: translateY($e);
+  transform: translateY($e);
+}
+
+@mixin transition($e) {
+  -webkit-transition: $e;
+  -moz-transition: $e;
+  transition: $e;
+}
+
+
+/* Fonts */
+
+html, body {
+  height: 97%;
+}
+
+main {
+  min-height: 100%;
+  background-color: $pageBackground;
+}
+
+.container {
+  min-width: 100%;
+
+  padding: 0px;
+}
+
+.app {
+  min-height: 100%;
+}
+
+.content {
+  height: 100%;
+}
+
+.content-inside {
+  padding: 0px;
+  background-color: $pageBackground;
+}
+
+a {
+  text-decoration: none;
+  @include transition(.3s ease-in-out);
+  cursor: pointer;
+
+  &:hover {
+    color: $white;
+    @include transition(.3s ease-in-out);
+  }
+}
+
+

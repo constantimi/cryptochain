@@ -41,7 +41,7 @@ if sys.argv[1] == "-sql" or sys.argv[1]=='-all':
 			--database-version={} \
 		        --tier={} \
 			--network=default".format(name, zone, database, machine_type))	
-	execute_command("gcloud sql users set-password postgres no-host --instance={} --password={}".format(name,password))
+	#execute_command("gcloud sql users set-password postgres no-host --instance={} --password={}".format(name,password))
 	#creating the docker user
 	execute_command("gcloud sql users create django \
    			--instance={} --password=django".format(name))
@@ -82,7 +82,7 @@ if sys.argv[1] == "-instance" or sys.argv[1]=='-all':
 	execute_command("gcloud compute scp ../cloud --recurse {}:~ --zone {}".format(name,zone))
 	
 	print("EXECUTING modifier.sh SCRIPT")
-        command = "gcloud compute ssh {} --zone europe-west2-c --command".format(name).split()
+        command = "gcloud compute ssh {} --zone {} --command".format(name,zone).split()
         command.append('sudo sh {}/cloud/modifier.sh'.format(HOME_DIR))
         print(command)
 	subprocess.call(command)

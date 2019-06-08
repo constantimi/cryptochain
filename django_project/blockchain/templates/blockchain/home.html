@@ -1,6 +1,10 @@
 {% extends "blockchain/base.html" %}
 {% block content %}
 
-<h1>Home</h1>
+{% if user.is_authenticated %}
+    <h1>Blockchain - Server </h1>
+{% else %}
+    <h1>Blockchain - Server. Please login to proceed ...</h1>
+{% endif %}
 
 {% endblock content %}

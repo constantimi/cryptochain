@@ -24,13 +24,15 @@ sudo gitlab-runner register \
   --run-untagged \
   --locked="false" \
 
+
 sudo usermod -aG docker gitlab-runner
 sudo usermod -aG docker stiefff
 gcloud config set project thesis-project-111
 gcloud auth -q configure-docker
 
-sudo -u gitlab-runner gcloud auth activate-service-account --key-file cloud/infrastructure/project-key.json
-sudo -u gitlab-runner cat cloud/infrastructure/project-key.json | docker login -u _json_key --password-stdin https://eu.gcr.io
-sudo -u gitlab-runner python cloud/kube_deployment.py
+sudo -u gitlab-runner gcloud auth activate-service-account --key-file /home/stiefff/cloud/infrastructure/project-key.json
+sudo -u gitlab-runner cat /home/stiefff/cloud/infrastructure/project-key.json | sudo -u gitlab-runner docker login -u _json_key --password-stdin https://eu.gcr.io
+
+sudo -u gitlab-runner python /home/stiefff/cloud/kube_deployment.py
 
 echo "DONE"

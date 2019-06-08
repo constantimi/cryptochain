@@ -3,17 +3,16 @@ import subprocess
 import smtplib, ssl
 
 
-def send_email(title, message):
+def send_email(title, body):
 	port = 465  # For SSL
 	smtp_server = "smtp.gmail.com"
 	sender_email = "kubernetes.cronjob@gmail.com"  # Enter your address
 	receiver_email = "stefanbabukov98@gmail.com"  # Enter receiver address
 	password = "kubernetes123"
 	message = """\
-	Subject: {}
+		Subject: {}
 
-
-	{}""".format(title,message)
+		{}""".format(title,body)
 	context = ssl.create_default_context()
 	with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
 	    server.login(sender_email, password)
@@ -27,5 +26,5 @@ def site_availability(URL):
 	if "curl: (28)" in response or "curl: (6)" in response:
 		send_email("Problem with your endpoint","The URL - {} is not responding!".format(URL))
 
-site_availability("http://35.244.237.84")
+site_availability("http://34.95.86.187") 
 site_availability("app:31000")

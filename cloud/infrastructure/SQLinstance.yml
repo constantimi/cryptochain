@@ -1,5 +1,5 @@
 SQL:
-     name: thesis1
+     name: thesis2
      zone: europe-west2-c
      database-version: POSTGRES_9_6
      password: docker

@@ -10,6 +10,6 @@ spec:
         spec:
           containers:
           - name: app
-            image: eu.gcr.io/thesis-project-111/thesis-app:59292779
+            image: eu.gcr.io/thesis-project-111/thesis-app:latest
             command: ["python3", "monitor.py"]
           restartPolicy: OnFailure

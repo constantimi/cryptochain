@@ -1,4 +1,4 @@
 instance:
      name: runner-instance1
-     zone: europe-west2-c
+     zone: europe-west2-b
      machine-type: g1-small
