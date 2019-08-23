@@ -1,4 +1,12 @@
 ## Available Scripts for Django
+The following commands are for the user on this app.
+### `python manage.py makemigrations`
+
+Than migrate: 
+### `python manage.py migrate`
+
+Create superuser:
+### `python manage.py createsuperuser`
 
 In the project directory, you can run:
 
@@ -20,5 +28,3 @@ The following commands are for Postgres DB running on this app.
 
 To enter the postgres shell write:
 ### `psql`
-
-
