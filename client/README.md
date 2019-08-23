@@ -2,6 +2,9 @@
 
 In the project directory, you can run:
 
+### `sudo npm install`
+
+To start the project write:
 ### `npm start`
 
 Runs the app in the development mode.<br>
