@@ -1,5 +1,10 @@
 ## Available Scripts for Django
 The following commands are for the user on this app.
+
+Install django on your PC
+### `pip3 install django`
+
+Working with database:
 ### `python manage.py makemigrations`
 
 Than migrate: 
