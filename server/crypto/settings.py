@@ -37,11 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'api.apps.ApiConfig',
     'django_celery_results',
     'rest_framework',
     'corsheaders',
-    'crispy_forms',
+    'crypto',
+    'api',
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True

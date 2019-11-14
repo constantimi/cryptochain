@@ -1,7 +1,16 @@
-from django.core.management.base import BaseCommand, CommandError
-from server.api.models import Block, Transaction, Input
+from django.core.management.base import BaseCommand
 from django.utils import timezone
+
+''' source for the provider: https://infura.io/docs/ethereum/wss/eth_subscribe'''
+''' main net provide'''
+''' ~/server$ export WEB3_INFURA_PROJECT_ID=b062d82d9c5449e9a79a4b8071fa2353'''
+
 from web3.auto.infura import w3
+from django.apps import apps
+
+Block = apps.get_model('api', 'Block')
+Transaction = apps.get_model('api', 'Transaction')
+Input = apps.get_model('api', 'Input')
 
 
 class Command(BaseCommand):
@@ -20,7 +29,7 @@ class Command(BaseCommand):
         count = 0
 
         """Blocks count created in DB"""
-        blocks_count = 2
+        blocks_count = 30
 
         for index in range(blocks_count):
             """Take new block from web3 ethereum"""
@@ -72,6 +81,11 @@ class Command(BaseCommand):
                 except ValueError as e:
                     v = 0
 
+                if transaction.blockHash is not None:
+                    tx_blk_hash = transaction.blockHash.hex()
+                else:
+                    tx_blk_hash = 0
+
                 new_transaction = Transaction(
                     fee=f,
                     currency="ETH",
@@ -86,7 +100,7 @@ class Command(BaseCommand):
                     title="Transaction " + str(tx_number),
                     date_posted=timezone.localtime(timezone.now()),
                     hash=transaction.hash.hex(),
-                    block_hash=transaction.blockHash.hex(),
+                    block_hash=tx_blk_hash,
                     belonging_to=transaction['from'],
                     relayed_by=transaction.to,
                     inputs=transaction['input'],
