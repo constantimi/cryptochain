@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
+![text altr](http://еврозащита.рф/ex/wp-content/uploads/2018/10/Python.png)
+
 ### Explanation
 A blockchain, originally block chain, is a growing list of records, called blocks, which are linked using cryptography. ... It is "an open, distributed ledger that can record transactions between two parties efficiently and in a verifiable and permanent way".
 <br/>
@@ -25,19 +27,19 @@ Read more in the [documentation on ReadTheDocs](https://neo-python.readthedocs.i
 
 * Please follow directions in the install section
 <br/>
-The main functionality for this project is contained within the cli application np-prompt. You can view usage details here
+The main functionality for this project is contained within the cli application np-prompt. You can view usage details here:
+[np-prompt](https://neo-python.readthedocs.io/en/latest/prompt.html)
 
-```
-    neo-python-rpc: NEO RPC client in Python
-    neo-boa: Write smart contracts with Python
-```
+* Node with custom code
 
+    - Take a look at the examples in the /examples directory: [https://github.com/CityOfZion/neo-python/tree/development/examples](https://github.com/CityOfZion/neo-python/tree/development/examples)
 
 * Sister projects
 
     - [neo-python-rpc](https://github.com/CityOfZion/neo-python-rpc): NEO RPC client in Python
     - [neo-boa](https://github.com/CityOfZion/neo-boa): Write smart contracts with Python
 
+<br/><br/><br/>
 
 ## Bitcoin
 
@@ -102,6 +104,8 @@ for block in blockchain.get_ordered_blocks(os.path.expanduser('~/.bitcoin/blocks
     print("height=%d block=%s" % (block.height, block.hash))
 ```
 
+<br/><br/><br/>
+
 ## Ehtereum 
 
 A Python implementation of [web3.js](https://github.com/ethereum/web3.js)
@@ -113,6 +117,4 @@ A Python implementation of [web3.js](https://github.com/ethereum/web3.js)
 * Python 3.6+ support
 <br/>
  Read more in the [documentation on ReadTheDocs](http://web3py.readthedocs.io/). [View the change log on Github](docs/releases.rst).
-<br/>
 
-![text altr](https://commercecopilot.com/wp-content/uploads/2019/04/Logo-Design.jpg)
