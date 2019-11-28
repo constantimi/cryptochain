@@ -37,7 +37,7 @@ The main functionality for this project is contained within the cli application 
     - [neo-python-rpc](https://github.com/CityOfZion/neo-python-rpc): NEO RPC client in Python
     - [neo-boa](https://github.com/CityOfZion/neo-boa): Write smart contracts with Python
 
-
+<br/>
 ## Bitcoin
 
 Read more in the 
@@ -104,7 +104,7 @@ for block in blockchain.get_ordered_blocks(os.path.expanduser('~/.bitcoin/blocks
     print("height=%d block=%s" % (block.height, block.hash))
 ```
 
-
+<br/>
 ## Ethereum 
 
 A Python implementation of 
