@@ -6,7 +6,7 @@
 
 
 **Cryptochain is an opensource platform for deep explanation in the crypro technologies.**
-
+<br/><br/><br/>
 ## Neo
 
 Read more in the [documentation on ReadTheDocs](https://neo-python.readthedocs.io/en/latest/).
@@ -39,7 +39,10 @@ The main functionality for this project is contained within the cli application 
 
 ## Bitcoin
 
-Read more in the [documentation on ReadTheDocs](https://github.com/alecalve/python-bitcoin-blockchain-parser). [View the whitepaper](https://bitcoin.org/bitcoin.pdf).
+Read more in the 
+[documentation on ReadTheDocs](https://github.com/alecalve/python-bitcoin-blockchain-parser). 
+[View the whitepaper](https://bitcoin.org/bitcoin.pdf).
+
 <br/>
 This Python 3 library provides a parser for the raw data stored by bitcoind. 
 
@@ -104,7 +107,8 @@ for block in blockchain.get_ordered_blocks(os.path.expanduser('~/.bitcoin/blocks
 
 ## Ehtereum 
 
-A Python implementation of [web3.js](https://github.com/ethereum/web3.js)
+A Python implementation of 
+[web3.js](https://web3js.readthedocs.io/en/v1.2.4/).
 
 <br/>
 **Web3.py** is a python library for interacting with Ethereum. Its API is derived from the Web3.js Javascript API and should be familiar to anyone who has used **web3.js**.
@@ -113,4 +117,37 @@ A Python implementation of [web3.js](https://github.com/ethereum/web3.js)
 * Python 3.6+ support
 <br/>
  Read more in the [documentation on ReadTheDocs](http://web3py.readthedocs.io/). [View the change log on Github](docs/releases.rst).
+ 
+* defaultBlock
 
+**web3.eth.defaultBlock**
+<br/>
+The default block is used for certain methods. You can override it by passing in the defaultBlock as last parameter. The default value is “latest”.
+
+    - web3.eth.getBalance()
+    - web3.eth.getCode()
+    - web3.eth.getTransactionCount()
+    - web3.eth.getStorageAt()
+    - web3.eth.call()
+    - new web3.eth.Contract() -> myContract.methods.myMethod().call()
+
+* Property
+<br/>
+Default block parameters can be one of the following:
+
+    Number: A block number
+    "genesis" - String: The genesis block
+    "latest" - String: The latest block (current head of the blockchain)
+    "pending" - String: The currently mined block (including pending transactions)
+
+Default is "latest"
+<br/>
+- Example
+
+```
+ web3.eth.defaultBlock;
+> "latest"
+
+// set the default block
+web3.eth.defaultBlock = 231;
+```
