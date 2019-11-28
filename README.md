@@ -107,7 +107,7 @@ for block in blockchain.get_ordered_blocks(os.path.expanduser('~/.bitcoin/blocks
 
 <br/><br/>
 
-## Ehtereum 
+## Ethereum 
 
 A Python implementation of 
 [web3.js](https://web3js.readthedocs.io/en/v1.2.4/).
@@ -117,7 +117,7 @@ A Python implementation of
 <br/>
 
 * Python 3.6+ support
-<br/>
+
  Read more in the 
  [documentation on ReadTheDocs.](http://web3py.readthedocs.io/) 
  [View the change log on Github.](docs/releases.rst)
