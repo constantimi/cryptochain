@@ -25,6 +25,7 @@ Read more in the
 * Please follow directions in the install section
 <br/>
 The main functionality for this project is contained within the cli application here:
+
     - [np-prompt](https://neo-python.readthedocs.io/en/latest/prompt.html)
 
 * Node with custom code
