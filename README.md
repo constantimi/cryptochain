@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-![text altr](http://еврозащита.рф/ex/wp-content/uploads/2018/10/Python.png)
+![text altr](https://wallpaperaccess.com/full/1750753.jpg)
 
 ### Explanation
 A blockchain, originally block chain, is a growing list of records, called blocks, which are linked using cryptography. ... It is "an open, distributed ledger that can record transactions between two parties efficiently and in a verifiable and permanent way".
