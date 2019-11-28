@@ -35,6 +35,7 @@ Read more in the
     - [neo-boa](https://github.com/CityOfZion/neo-boa): Write smart contracts with Python
 
 <br/>
+
 ## Bitcoin
 
 Read more in the 
@@ -102,6 +103,7 @@ for block in blockchain.get_ordered_blocks(os.path.expanduser('~/.bitcoin/blocks
 ```
 
 <br/>
+
 ## Ethereum 
 
 A Python implementation of 
