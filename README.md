@@ -45,18 +45,19 @@ Read more in the
 <br/>
 This Python 3 library provides a parser for the raw data stored by bitcoind. 
 
-### Features
-- Detects outputs types
-- Detects addresses in outputs
-- Interprets scripts
-- Supports SegWit
-- Supports ordered block parsing
+* Features
 
-### Examples
+   - Detects outputs types
+   - Detects addresses in outputs
+   - Interprets scripts
+   - Supports SegWit
+   - Supports ordered block parsing
+
+* Examples
 
 Below are two basic examples for parsing the blockchain. More examples are available in the examples directory.
 
-### Unordered Blocks
+* Unordered Blocks
 
 This blockchain parser parses raw blocks saved in Bitcoin Core's `.blk` file format. Bitcoin Core does not guarantee that these blocks are saved in order. If your application does not require that blocks are parsed in order, the `Blockchain.get_unordered_blocks(...)` method can be used:
 
@@ -73,7 +74,7 @@ for block in blockchain.get_unordered_blocks():
             print("tx=%s outputno=%d type=%s value=%s" % (tx.hash, no, output.type, output.value))
 ```
 
-### Ordered Blocks
+* Ordered Blocks
 
 If maintaining block order is necessary for your application, you should use the `Blockchain.get_ordered_blocks(...)` method. This method uses Bitcoin Core's LevelDB index to locate ordered block data in it's `.blk` files.
 
