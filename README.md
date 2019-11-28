@@ -42,9 +42,7 @@ The main functionality for this project is contained within the cli application 
 ## Bitcoin
 
 Read more in the 
-
 [documentation on ReadTheDocs.](https://github.com/alecalve/python-bitcoin-blockchain-parser)
-
 [View the whitepaper.](https://bitcoin.org/bitcoin.pdf)
 
 <br/>
@@ -120,7 +118,9 @@ A Python implementation of
 
 * Python 3.6+ support
 <br/>
- Read more in the [documentation on ReadTheDocs](http://web3py.readthedocs.io/). [View the change log on Github](docs/releases.rst).
+ Read more in the 
+ [documentation on ReadTheDocs.](http://web3py.readthedocs.io/) 
+ [View the change log on Github.](docs/releases.rst)
  
 * **defaultBlock**
 
