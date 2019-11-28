@@ -9,7 +9,8 @@
 <br/><br/><br/>
 ## Neo
 
-Read more in the [documentation on ReadTheDocs](https://neo-python.readthedocs.io/en/latest/).
+Read more in the 
+[documentation on ReadTheDocs.](https://neo-python.readthedocs.io/en/latest/)
 <br/>
 
  - What does it currently do
@@ -24,6 +25,7 @@ Read more in the [documentation on ReadTheDocs](https://neo-python.readthedocs.i
 * Please follow directions in the install section
 <br/>
 The main functionality for this project is contained within the cli application np-prompt. You can view usage details here:
+
 [np-prompt](https://neo-python.readthedocs.io/en/latest/prompt.html)
 
 * Node with custom code
@@ -40,8 +42,10 @@ The main functionality for this project is contained within the cli application 
 ## Bitcoin
 
 Read more in the 
-[documentation on ReadTheDocs](https://github.com/alecalve/python-bitcoin-blockchain-parser). 
-[View the whitepaper](https://bitcoin.org/bitcoin.pdf).
+
+[documentation on ReadTheDocs.](https://github.com/alecalve/python-bitcoin-blockchain-parser)
+
+[View the whitepaper.](https://bitcoin.org/bitcoin.pdf)
 
 <br/>
 This Python 3 library provides a parser for the raw data stored by bitcoind. 
