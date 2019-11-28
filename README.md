@@ -24,13 +24,12 @@ Read more in the
 
 * Please follow directions in the install section
 <br/>
-The main functionality for this project is contained within the cli application np-prompt. You can view usage details here:
-
+The main functionality for this project is contained within the cli application 
 [np-prompt](https://neo-python.readthedocs.io/en/latest/prompt.html)
 
 * Node with custom code
 
-    - Take a look at the examples in the /examples directory: [https://github.com/CityOfZion/neo-python/tree/development/examples](https://github.com/CityOfZion/neo-python/tree/development/examples)
+    - Take a look at the examples here: [https://github.com/CityOfZion/neo-python/tree/development/examples](https://github.com/CityOfZion/neo-python/tree/development/examples)
 
 * Sister projects
 
