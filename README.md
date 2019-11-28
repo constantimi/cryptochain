@@ -37,7 +37,6 @@ The main functionality for this project is contained within the cli application 
     - [neo-python-rpc](https://github.com/CityOfZion/neo-python-rpc): NEO RPC client in Python
     - [neo-boa](https://github.com/CityOfZion/neo-boa): Write smart contracts with Python
 
-<br/><br/>
 
 ## Bitcoin
 
@@ -105,7 +104,6 @@ for block in blockchain.get_ordered_blocks(os.path.expanduser('~/.bitcoin/blocks
     print("height=%d block=%s" % (block.height, block.hash))
 ```
 
-<br/><br/>
 
 ## Ethereum 
 
@@ -121,9 +119,10 @@ A Python implementation of
  Read more in the 
  [documentation on ReadTheDocs.](http://web3py.readthedocs.io/) 
  [View the change log on Github.](docs/releases.rst)
- 
-* **defaultBlock**
 
+<br/>
+**defaultBlock**
+<br/>
 **web3.eth.defaultBlock**
 <br/>
 The default block is used for certain methods. You can override it by passing in the defaultBlock as last parameter. The default value is “latest”.
@@ -139,7 +138,6 @@ The default block is used for certain methods. You can override it by passing in
 * Property
 
 Default block parameters can be one of the following:
-<br/>
 
     Number: A block number
     "genesis" - String: The genesis block
