@@ -4,14 +4,13 @@
 
 .page-footer {
   font-family: $generic-family;
-  font-size: 13px;
+  font-size: 0.8rem;
   width: 100%;
-  color: $darkGrey;
-  background-color: $pageBackground;
+  color: $white;
   text-align: center;
 
   a {
-    color: $darkGrey;
+    color: $white;
     text-decoration: none !important;
   }
 }
@@ -39,6 +38,7 @@
   min-width: 100%;
   background: $darkTricks;
   color: $white;
+  padding: 0px;
 }
 
 .page_label_container {
@@ -434,6 +434,7 @@
 }
 
 .header_components_lower_row {
+  padding: 0px;
   display: flex;
   flex-wrap: wrap;
   margin-left: 1px;
@@ -444,9 +445,10 @@
 }
 
 .header_components_col {
+  padding: 0px;
   flex-basis: 0;
   flex-grow: 1;
-  max-width: 215px;
+  max-width: 100%;
   min-width: 150px;
   border: 1px solid $lightTricks;
 }
@@ -536,8 +538,9 @@ input {
 // about
 
 .about {
-  max-width: 80%;
-  font-family: $generic-family;
+  max-width: 100%;
+  font-family: Lucida Console,Monospace;
+  padding: 0;
 
   h3{
     text-decoration: underline;
@@ -546,7 +549,7 @@ input {
   .row {
     display: flex;
     flex-wrap: wrap;
-    margin: 6%;
+    margin: 0px;
     margin-bottom: 0px;
   }
 
@@ -571,18 +574,8 @@ input {
 // chart.js
 
 .graphContainer {
-  width: 50vw;
-  height: 50vh;
+
   background: white;
   padding: 30px 20px 10px 20px;
   border-radius: 10px;
-  -webkit-box-shadow: 0px 10px 0px -5px rgba(0,0,0,0.3);
-  -moz-box-shadow: 0px 10px 0px -5px rgba(0,0,0,0.3);
-  box-shadow: 0px 10px 0px -5px rgba(0,0,0,0.3);
-}
-
-@media only screen and (max-width: 600px) {
-  .graphContainer {
-      width: 80vw;
-  }
 }

@@ -1,10 +1,11 @@
 // using CommonJS modules
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import {MDBContainer} from 'mdbreact';
-// components
-import Header from './components/headerComponent/header';
-import HeaderComponents from './components/headerComponent/header_components';
+
+// navigation
+import Navigation from './components/navigationComponent/navigation';
+
 // transactions
 import Transactions from './components/contentComponent/transactions/transactions';
 import Transaction from './components/contentComponent/transactions/transactionDetails';
@@ -61,13 +62,11 @@ class Main extends Component {
 
     render() {
         return (
-            <div className="app">
                 <Router>
                     <div className="content">
 
-                        {/* Navbar */}
-                        <Header/>
-                        <HeaderComponents/>
+                    {/* Navigation */}
+                    <Navigation />
 
                         {/* Content */}
                         <MDBContainer className="content-inside">
@@ -97,10 +96,10 @@ class Main extends Component {
                             <Route exact path={'/line-graph'} component={LineGraph}/>
 
                         </MDBContainer>
-
                     </div>
+
+                    <div class="push"></div>
                 </Router>
-            </div>
         );
     }
 }

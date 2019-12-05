@@ -12,7 +12,7 @@ var SCSS_SRC = './src/assets/scss/**/*.scss';
 var SCSS_DEST = './src/assets/css';
 
 // Compile SCSS
-gulp.task('compile_scss', function(){
+gulp.task('sass', function(){
 
     gulp.src(SCSS_SRC)
     .pipe(sass().on('error', sass.logError))
@@ -24,9 +24,9 @@ gulp.task('compile_scss', function(){
 });
 
 // Detect changes in SCSS
-gulp.task('watch_scss', function(){
-    gulp.watch(SCSS_SRC, ['compile_scss']);
+gulp.task('watch', function(){
+    gulp.watch(SCSS_SRC, ['sass']);
 });
 
 // Default task for gulp
-gulp.task('default', ['watch_scss']);
+gulp.task('default', ['sass']);
