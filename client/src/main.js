@@ -19,8 +19,12 @@ import Outputs from './components/contentComponent/outputs/outputs';
 import Output from './components/contentComponent/outputs/outputDetails';
 // about page
 import About from './components/contentComponent/about/about';
+// chart page
+import LineGraph from './components/contentComponent/charts/lineGraph';
+
 // includes
 import './assets/css/default.min.css';
+
 
 
 class Main extends Component {
@@ -89,6 +93,8 @@ class Main extends Component {
                             {/* List of Transactions & Transaction/id Details */}
                             <Route exact path={'/outputs'} component={Outputs}/>
                             <Route exact path={'/output/:id'} component={Output}/>
+
+                            <Route exact path={'/line-graph'} component={LineGraph}/>
 
                         </MDBContainer>
 

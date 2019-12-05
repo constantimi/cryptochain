@@ -6,14 +6,14 @@
 import axios from 'axios';
 
 export function fetchTransactionsData() {
-    return axios.get('http://localhost:8000/transactions/', {
+    return axios.get('https://cryptochain-server.herokuapp.com/transactions/', {
         method: 'GET', // "Accept": "application/json"
         mode: 'CORS'
     });
 }
 
 export function fetchTransactionDataById(id) {
-    return axios.get(`http://localhost:8000/transaction/${id}`, {
+    return axios.get(`https://cryptochain-server.herokuapp.com/transaction/${id}`, {
         method: 'GET',
         mode: 'CORS'
     });

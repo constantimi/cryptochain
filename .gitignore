@@ -19,5 +19,10 @@ bin-release/
 
 .idea/
 client/.idea/
-server/.idea/
 client/node_modules/
+
+server/env/
+
+
+.gitignore
+

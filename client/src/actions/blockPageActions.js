@@ -7,17 +7,15 @@
 import axios from 'axios';
 
 export function fetchBlocksData() {
-    var config = {
-        headers: {'Access-Control-Allow-Origin': '*'}
-    };
-    return axios.get('http://localhost:8000/blocks/', {
+
+    return axios.get('https://cryptochain-server.herokuapp.com/blocks/', {
         method: 'GET',
         mode: 'CORS'
     });
 }
 
 export function fetchBlockDataById(id) {
-    return axios.get('http://localhost:8000/block/' + `${id}`, {
+    return axios.get('https://cryptochain-server.herokuapp.com/block/' + `${id}`, {
         method: 'GET',
         mode: 'CORS'
     });

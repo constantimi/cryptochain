@@ -6,14 +6,14 @@
 import axios from 'axios';
 
 export function fetchInputsData() {
-    return axios.get('http://localhost:8000/inputs/', {
+    return axios.get('https://cryptochain-server.herokuapp.com/inputs/', {
         method: 'GET',
         mode: 'CORS'
     });
 }
 
 export function fetchInputDataById(id) {
-    return axios.get('http://localhost:8000/input/' + `${id}`, {
+    return axios.get('https://cryptochain-server.herokuapp.com/input/' + `${id}`, {
         method: 'GET',
         mode: 'CORS'
     });

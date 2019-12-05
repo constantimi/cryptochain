@@ -5,7 +5,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Main from './main';
 import Footer from './components/footerComponent/footer';
-import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<Main />, document.getElementById('main'));
 ReactDOM.render(<Footer />, document.getElementById('footer'));
@@ -14,4 +13,3 @@ ReactDOM.render(<Footer />, document.getElementById('footer'));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 
-serviceWorker.unregister();
