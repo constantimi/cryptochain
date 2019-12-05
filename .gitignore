@@ -22,6 +22,7 @@ client/.idea/
 client/node_modules/
 
 server/env/
+server/api/__pycache__/
 
 
 .gitignore
