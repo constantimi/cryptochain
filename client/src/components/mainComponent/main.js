@@ -4,27 +4,24 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import {MDBContainer} from 'mdbreact';
 
 // navigation
-import Navigation from './components/navigationComponent/navigation';
+import Navigation from '../navigationComponent/navigation';
 
 // transactions
-import Transactions from './components/contentComponent/transactions/transactions';
-import Transaction from './components/contentComponent/transactions/transactionDetails';
+import Transactions from '../contentComponent/transactions/transactions';
+import Transaction from '../contentComponent/transactions/transactionDetails';
 // blocks
-import Blocks from './components/contentComponent/blocks/blocks';
-import Block from './components/contentComponent/blocks/blockDetails';
+import Blocks from '../contentComponent/blocks/blocks';
+import Block from '../contentComponent/blocks/blockDetails';
 // inputs
-import Inputs from './components/contentComponent/inputs/inputs';
-import Input from './components/contentComponent/inputs/inputDetails';
+import Inputs from '../contentComponent/inputs/inputs';
+import Input from '../contentComponent/inputs/inputDetails';
 // outputs
-import Outputs from './components/contentComponent/outputs/outputs';
-import Output from './components/contentComponent/outputs/outputDetails';
+import Outputs from '../contentComponent/outputs/outputs';
+import Output from '../contentComponent/outputs/outputDetails';
 // about page
-import About from './components/contentComponent/about/about';
+import About from '../contentComponent/about/about';
 // chart page
-import LineGraph from './components/contentComponent/charts/lineGraph';
-
-// includes
-import './assets/css/default.min.css';
+import LineGraph from '../contentComponent/charts/lineGraph';
 
 
 
