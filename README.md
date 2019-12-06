@@ -218,11 +218,6 @@ A Python implementation of
  [documentation on ReadTheDocs.](http://web3py.readthedocs.io/) 
  [View the change log on Github.](docs/releases.rst)
 
-<br/>
-
-#### defaultBlock
-
-<br/>
 
 **web3.eth.defaultBlock**
 
@@ -235,21 +230,34 @@ The default block is used for certain methods. You can override it by passing in
 `
 web3.eth.getBalance()
 `
+
+<br/>
 `
 web3.eth.getCode()
 `
+
+<br/>
 `
 web3.eth.getTransactionCount()
 `
+
+<br/>
 `
 web3.eth.getStorageAt()
 `
+
+<br/>
 `
 web3.eth.call()
 `
+
+<br/>
 `
 new web3.eth.Contract() -> myContract.methods.myMethod().call()
 `
+
+<br/>
+
 #### Property
 
 Default block parameters can be one of the following:
