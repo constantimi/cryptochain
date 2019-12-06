@@ -127,6 +127,8 @@ Read more in the [documentation on ReadTheDocs.](https://neo-python.readthedocs.
 
 --- 
 
+<br/>
+
 ## Bitcoin
 
 Read more in the [documentation on ReadTheDocs.](https://github.com/alecalve/python-bitcoin-blockchain-parser)
@@ -196,6 +198,7 @@ for block in blockchain.get_ordered_blocks(os.path.expanduser('~/.bitcoin/blocks
 <br/>
 
 ---
+
 <br/>
 
 ## Ethereum 
