@@ -17,9 +17,6 @@
 
 ![text altr](https://wallpaperaccess.com/full/1750753.jpg)
 
-
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
-
 <br/>
 
 ## Cryptonator
@@ -227,31 +224,37 @@ The default block is used for certain methods. You can override it by passing in
 
 <br/>
 
+
 `
 web3.eth.getBalance()
 `
 
 <br/>
+
 `
 web3.eth.getCode()
 `
 
 <br/>
+
 `
 web3.eth.getTransactionCount()
 `
 
 <br/>
+
 `
 web3.eth.getStorageAt()
 `
 
 <br/>
+
 `
 web3.eth.call()
 `
 
 <br/>
+
 `
 new web3.eth.Contract() -> myContract.methods.myMethod().call()
 `
