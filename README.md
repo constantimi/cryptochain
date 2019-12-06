@@ -8,10 +8,10 @@
 
 ## Table of content
 
-- [Existing crypto platforms](##Cryptonator)
-- [Neo - fetching data from testnet and mainnet](##Neo)
-- [Bitcoin - fetching data from Bitcoin Core .blk files](##Bitcoin)
-- [Ethereum - web3.js fetching mainnet data](##Ethereum)
+- [Existing crypto platforms](#Cryptonator)
+- [Neo - fetching data from testnet and mainnet](#Neo)
+- [Bitcoin - fetching data from Bitcoin Core .blk files](#Bitcoin)
+- [Ethereum - web3.js fetching mainnet data](#Ethereum)
 
 <br/>
 
