@@ -27,13 +27,19 @@ class Navigation extends Component {
                 <MDBNavbar dark expand="md">
 
                     <MDBNavbarBrand>
-                        Blockchain
+                        Cryptochain
                     </MDBNavbarBrand>
 
                     <MDBNavbarToggler onClick={this.toggleCollapse}/>
 
                     <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
                         <MDBNavbarNav left>
+
+                            <MDBNavItem>
+                                {/* <MDBNavLink to="/prices">Prices</MDBNavLink> */}
+                                <a href="/prices" class="nav-link">Pirces</a>
+                            </MDBNavItem>
+
 
                             <MDBNavItem>
                                 {/* <MDBNavLink to="/blocks">Blocks</MDBNavLink> */}
@@ -53,11 +59,6 @@ class Navigation extends Component {
                             <MDBNavItem>
                                 {/* <MDBNavLink to="/outputs">Ouputs</MDBNavLink> */}
                                 <a href="/outputs" class="nav-link">Outputs</a>
-                            </MDBNavItem>
-
-                            <MDBNavItem>
-                                {/* <MDBNavLink to="/prices">Prices</MDBNavLink> */}
-                                <a href="/prices" class="nav-link">Pirces</a>
                             </MDBNavItem>
 
                         </MDBNavbarNav>

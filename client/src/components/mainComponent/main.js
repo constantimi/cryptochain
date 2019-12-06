@@ -18,8 +18,6 @@ import Input from '../contentComponent/inputs/inputDetails';
 // outputs
 import Outputs from '../contentComponent/outputs/outputs';
 import Output from '../contentComponent/outputs/outputDetails';
-// about page
-import About from '../contentComponent/about/about';
 // chart page
 import LineGraph from '../contentComponent/charts/lineGraph';
 
@@ -69,7 +67,7 @@ class Main extends Component {
                         <MDBContainer className="content-inside">
 
                             {/* Homepage links to Blocks*/}
-                            <Route exact path={'/'} component={Blocks}/>
+                            <Route exact path={'/'} component={LineGraph}/>
                             
                             {/* List of Blocks & Block/id Details */}
                             <Route exact path={'/blocks'} component={Blocks}/>

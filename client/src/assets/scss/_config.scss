@@ -1,10 +1,13 @@
 /* Variables */
 
 $black: #010000;
-$white: #F5F5F5;
+$white: #fff;
 $red: #ff1755;
 $blue: #7a7ab7;
 $grey: #6C6866;
+
+$lightWhite: #F5F5F5;
+$darkWhite: #aaaaaa;
 
 $lightGrey: #e6e6e6;
 $darkGrey: #333;
@@ -60,7 +63,7 @@ main {
 
 footer {
   min-height: 3%;
-  background-color: $lightTricks;
+  background-color: $pageBackground;
 }
 
 .container {

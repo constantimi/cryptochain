@@ -6,7 +6,7 @@
   font-family: $generic-family;
   font-size: 0.8rem;
   width: 100%;
-  color: $white;
+  color: $darkWhite;
   text-align: center;
 
   a {
@@ -573,9 +573,9 @@ input {
 
 // chart.js
 
-.graphContainer {
+.graph_container {
 
   background: white;
-  padding: 30px 20px 10px 20px;
+  padding: 5% 5% 5% 5%;
   border-radius: 10px;
 }

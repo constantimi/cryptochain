@@ -9,7 +9,7 @@ import axios from 'axios';
 
 export function fetchBitcoin(){
     var moment = require('moment');
-    var displayMonthsBack = 6;
+    var displayMonthsBack = 12;
 
     return axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=${moment(new Date()).subtract(displayMonthsBack, 'month').format('YYYY-MM-DD')}&end=${moment(new Date()).format('YYYY-MM-DD')}`, {
         method: 'GET',

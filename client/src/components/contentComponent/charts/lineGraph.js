@@ -38,6 +38,7 @@ class LineGraph extends Component{
                         label: 'Bitcoin',
                         data: data,
                         borderColor: "#80ffaa",
+                        fill: false,
                         }
                     ]
                     },
@@ -45,7 +46,34 @@ class LineGraph extends Component{
                         title: {
                             display: true,
                             text: 'Information for current Bitcoin price'
-                        }
+                        },
+                        tooltips: {
+                            mode: 'index',
+                            intersect: false,
+                          },
+                         hover: {
+                            mode: 'nearest',
+                            intersect: true
+                          },
+                          scales: {
+                            xAxes: [{
+                              display: true,
+                              scaleLabel: {
+                                display: true,
+                              },
+                              type: 'time',
+                                time: {
+                                    unit: 'month'
+                                }
+                            }],
+                            yAxes: [{
+                              display: true,
+                              scaleLabel: {
+                                display: true,
+                                labelString: 'USD'
+                              }
+                            }]
+                          }
                     }
                 });
 
@@ -62,7 +90,7 @@ class LineGraph extends Component{
 
     render () {
         return(
-            <MDBContainer className="graphContainer">
+            <MDBContainer className="graph_container">
                 <canvas id="myChart" ref={this.chartRef}/>
             </MDBContainer>
         );
