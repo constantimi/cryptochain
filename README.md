@@ -9,9 +9,9 @@
 ## Table of content
 
 - [Existing crypto platforms](##Cryptonator)
-- [Neo - fetching data from testnet and mainnet](#Neo)
-- [Bitcoin - fetching data from Bitcoin Core .blk files](#Bitcoin)
-- [Ethereum - web3.js fetching mainnet data]()
+- [Neo - fetching data from testnet and mainnet](##Neo)
+- [Bitcoin - fetching data from Bitcoin Core .blk files](##Bitcoin)
+- [Ethereum - web3.js fetching mainnet data](##Ethereum)
 
 <br/>
 
@@ -100,7 +100,7 @@ curl -H "X-CMC_PRO_API_KEY: b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c" -H "Accept: ap
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-# Neo
+## Neo
 
 Read more in the [documentation on ReadTheDocs.](https://neo-python.readthedocs.io/en/latest/)
 
@@ -130,7 +130,7 @@ Read more in the [documentation on ReadTheDocs.](https://neo-python.readthedocs.
 
 --- 
 
-# Bitcoin
+## Bitcoin
 
 Read more in the [documentation on ReadTheDocs.](https://github.com/alecalve/python-bitcoin-blockchain-parser)
 [View the whitepaper.](https://bitcoin.org/bitcoin.pdf)
@@ -201,7 +201,7 @@ for block in blockchain.get_ordered_blocks(os.path.expanduser('~/.bitcoin/blocks
 ---
 <br/>
 
-# Ethereum 
+## Ethereum 
 
 A Python implementation of 
 [web3.js](https://web3js.readthedocs.io/en/v1.2.4/).
