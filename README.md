@@ -65,6 +65,7 @@ Read more in the [coindesk](https://www.coindesk.com/coindesk-api)
 
 On the CoinDesk website, it is published the BPI in USD, EUR, and GBP, calculated every minute, based on criteria as discussed on the CoinDesk BPI page. This same data can be retrieved using the endpoint: 
 <br/><br/>
+
 `
 https://api.coindesk.com/v1/bpi/currentprice.json
 `
@@ -81,7 +82,9 @@ Sample JSON Response:
 
 ## Coinmarketcap
 <br/>
+
 Read more in the [coinmarketcap](https://coinmarketcap.com/api/documentation/v1)
+
 <br/>
 The CoinMarketCap API is a suite of high-performance RESTful JSON endpoints that are specifically designed to meet the mission-critical demands of application developers, data scientists, and enterprise business platforms.
 
