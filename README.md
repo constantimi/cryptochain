@@ -1,5 +1,3 @@
-![text altr](https://wallpaperaccess.com/full/1750753.jpg)
-
 # Cryptochain
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
@@ -17,7 +15,7 @@
 
 <br/>
 
----
+![text altr](https://wallpaperaccess.com/full/1750753.jpg)
 
 # Crypto platforms
 
@@ -32,16 +30,16 @@ Read more in the [cryptonator](https://www.cryptonator.com/api)
 Returns actual volume-weighted price, total 24h volume, rate change as well as prices and volumes across all connected exchanges.
 
 Example request for BTC-USD
-<br/>
+<br/><br/>
 `
 https://api.cryptonator.com/api/full/btc-usd
 `
-<br/>
+<br/><br/>
 Sample JSON Response:
-
+<br/><br/>
 > {"ticker":{"base":"BTC","target":"USD","price":"443.7807865468","volume":"31720.1493969300","change":"0.3766203596","markets":[{"market":"bitfinex","price":"447.5000000000","volume":"10559.5293639000"},{"market":"bitstamp","price":"448.5400000000","volume":"11628.2880079300"},{"market":"btce","price":"432.8900000000","volume":"8561.0563600000"},{"market":"cryptotrade","price":"436.9999989900","volume":"0.3640623100"},{"market":"exmoney","price":"428.0000000000","volume":"7.9020328400"},{"market":"hitbtc","price":"442.6200000000","volume":"750.5900000000"},{"market":"justcoin","price":"453.4920000000","volume":"10.2583700000"},{"market":"kraken","price":"452.7042200000","volume":"17.7767076800"},{"market":"therocktrading","price":"440.0000000000","volume":"178.9300000000"},{"market":"vaultofsatoshi","price":"450.6428600000","volume":"5.3209840100"},{"market":"vircurex","price":"460.0000000000","volume":"0.1335082600"}]},"timestamp":1399490941,"success":true,"error":""}
 
-<br/>
+<br/><br/>
 
 **Params**
 <br/>
@@ -57,22 +55,24 @@ Sample JSON Response:
 - Timestamp - Update time in Unix timestamp format
 - Success - True or false
 - Error - Error description
-<br/>
-<br/>
-Replace btc-usd with the currency codes you need. Please refer to the actual list of supported currencies. Volume is displayed only for the cryptocurrencies that are actually traded on online exchanges. 
 
 <br/>
+<br/>
+
+Replace btc-usd with the currency codes you need. Please refer to the actual list of supported currencies. Volume is displayed only for the cryptocurrencies that are actually traded on online exchanges. 
+
+<br/><br/>
 
 ## Coindesk
 
 Read more in the [coindesk](https://www.coindesk.com/coindesk-api) 
 
 On the CoinDesk website, it is published the BPI in USD, EUR, and GBP, calculated every minute, based on criteria as discussed on the CoinDesk BPI page. This same data can be retrieved using the endpoint: 
-<br/>
+<br/><br/>
 `
 https://api.coindesk.com/v1/bpi/currentprice.json
 `
-<br/>
+<br/><br/>
 Sample JSON Response:
 
 > {"time":{"updated":"Sep 18, 2013 17:27:00 UTC","updatedISO":"2013-09-18T17:27:00+00:00"},
@@ -81,15 +81,15 @@ Sample JSON Response:
 "GBP":{"code":"GBP","symbol":"£","rate":"79.2495","description":"British Pound Sterling","rate_float":79.2495},
 "EUR":{"code":"EUR","symbol":"€","rate":"94.7398","description":"Euro","rate_float":94.7398}}}
 
-<br/>
+<br/><br/>
 
 ## Coinmarketcap
-
+<br/>
 Read more in the [coinmarketcap](https://coinmarketcap.com/api/documentation/v1)
-
+<br/>
 The CoinMarketCap API is a suite of high-performance RESTful JSON endpoints that are specifically designed to meet the mission-critical demands of application developers, data scientists, and enterprise business platforms.
 
-<br/>
+<br/><br/>
 
 `
 curl -H "X-CMC_PRO_API_KEY: b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c" -H "Accept: application/json" -d "id=1,1027" -G https://pro-api.coinmarketcap.com/v1/cryptocurrency/info
@@ -98,6 +98,10 @@ curl -H "X-CMC_PRO_API_KEY: b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c" -H "Accept: ap
 <br/>
 
 ---
+
+# Implementation
+
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 # Neo
 
@@ -252,22 +256,31 @@ new web3.eth.Contract() -> myContract.methods.myMethod().call()
 #### Property
 
 Default block parameters can be one of the following:
+<br/>
+Number: A block number <br/>
+`"genesis"` - String: The genesis block<br/>
+`"latest"` - String: The latest block (current head of the blockchain)<br/>
+`"pending"` - String: The currently mined block (including pending transactions)<br/>
+Default is "latest"<br/>
 
-Number: A block number
-`"genesis"` - String: The genesis block
-`"latest"` - String: The latest block (current head of the blockchain)
-`"pending"` - String: The currently mined block (including pending transactions)
-Default is "latest"
+<br/><br/>
+
+#### Example
 
 <br/>
 
-#### Example
 `
  $ web3.eth.defaultBlock;
  `
+
+<br/>
+
  > "latest"
- 
+
+<br/>
+
  Set the default block
+<br/>
 `
 $ web3.eth.defaultBlock = 231;
 `
