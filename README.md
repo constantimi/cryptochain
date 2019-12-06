@@ -8,7 +8,7 @@
 
 ## Table of content
 
-- [Existing crypto platforms](#Crypto-platforms)
+- [Existing crypto platforms](##Cryptonator)
 - [Neo - fetching data from testnet and mainnet](#Neo)
 - [Bitcoin - fetching data from Bitcoin Core .blk files](#Bitcoin)
 - [Ethereum - web3.js fetching mainnet data]()
@@ -17,7 +17,6 @@
 
 ![text altr](https://wallpaperaccess.com/full/1750753.jpg)
 
-# Crypto platforms
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
@@ -98,8 +97,6 @@ curl -H "X-CMC_PRO_API_KEY: b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c" -H "Accept: ap
 <br/>
 
 ---
-
-# Implementation
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
