@@ -1,51 +1,133 @@
-## Cryptochain
+# Cryptochain
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 ![text altr](https://wallpaperaccess.com/full/1750753.jpg)
 
 
-**Cryptochain is an opensource platform for deep explanation in the crypro technologies.**
-<br/><br/><br/>
-## Neo
+##### Cryptochain is an opensource platform for deep explanation in the crypro technologies.
 
-Read more in the 
-[documentation on ReadTheDocs.](https://neo-python.readthedocs.io/en/latest/)
 <br/>
 
- - What does it currently do
+### Table of content
+- [Existing crypto platforms](#Crypto-platforms)
+- [Neo - fetching data from testnet and mainnet](#Neo)
+- [Bitcoin - fetching data from Bitcoin Core .blk files](#Bitcoin)
+- [Ethereum - web3.js fetching mainnet data]()
+
+<br/>
+
+---
+
+# Crypto platforms
+
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+
+<br/>
+
+#### Cryptonator
+
+Read more in the [cryptonator](https://www.cryptonator.com/api)
+
+Returns actual volume-weighted price, total 24h volume, rate change as well as prices and volumes across all connected exchanges.
+
+Example request for BTC-USD
+ https://api.cryptonator.com/api/full/btc-usd
+
+Sample JSON Response:
+
+> {"ticker":{"base":"BTC","target":"USD","price":"443.7807865468","volume":"31720.1493969300","change":"0.3766203596","markets":[{"market":"bitfinex","price":"447.5000000000","volume":"10559.5293639000"},{"market":"bitstamp","price":"448.5400000000","volume":"11628.2880079300"},{"market":"btce","price":"432.8900000000","volume":"8561.0563600000"},{"market":"cryptotrade","price":"436.9999989900","volume":"0.3640623100"},{"market":"exmoney","price":"428.0000000000","volume":"7.9020328400"},{"market":"hitbtc","price":"442.6200000000","volume":"750.5900000000"},{"market":"justcoin","price":"453.4920000000","volume":"10.2583700000"},{"market":"kraken","price":"452.7042200000","volume":"17.7767076800"},{"market":"therocktrading","price":"440.0000000000","volume":"178.9300000000"},{"market":"vaultofsatoshi","price":"450.6428600000","volume":"5.3209840100"},{"market":"vircurex","price":"460.0000000000","volume":"0.1335082600"}]},"timestamp":1399490941,"success":true,"error":""}
+
+<br/>
+
+**Params**
+
+- Base - Base currency code
+- Target - Target currency code
+- Price - Volume-weighted price
+- Volume - Total trade volume for the last 24 hours
+- Change - Past hour price change
+- Markets - Array with prices/volumes across all exchanges
+    - Market - Name of the exchange
+    - Price - Price on this exchange
+    - Volume - 24h trade volume on this exchange
+- Timestamp - Update time in Unix timestamp format
+- Success - True or false
+- Error - Error description
+
+Replace btc-usd with the currency codes you need. Please refer to the actual list of supported currencies. Volume is displayed only for the cryptocurrencies that are actually traded on online exchanges. 
+
+<br/>
+
+#### Coindesk
+
+Read more in the [coindesk](https://www.coindesk.com/coindesk-api) 
+
+On the CoinDesk website, it is published the BPI in USD, EUR, and GBP, calculated every minute, based on criteria as discussed on the CoinDesk BPI page. This same data can be retrieved using the endpoint: 
+https://api.coindesk.com/v1/bpi/currentprice.json
+
+
+Sample JSON Response:
+
+> {"time":{"updated":"Sep 18, 2013 17:27:00 UTC","updatedISO":"2013-09-18T17:27:00+00:00"},
+"disclaimer":"This data was produced from the CoinDesk Bitcoin Price Index. Non-USD currency data converted using hourly conversion rate from openexchangerates.org",
+"bpi":{"USD":{"code":"USD","symbol":"$","rate":"126.5235","description":"United States Dollar","rate_float":126.5235},
+"GBP":{"code":"GBP","symbol":"£","rate":"79.2495","description":"British Pound Sterling","rate_float":79.2495},
+"EUR":{"code":"EUR","symbol":"€","rate":"94.7398","description":"Euro","rate_float":94.7398}}}
+
+<br/>
+
+#### Coinmarketcap
+
+Read more in the [coinmarketcap](https://coinmarketcap.com/api/documentation/v1)
+
+The CoinMarketCap API is a suite of high-performance RESTful JSON endpoints that are specifically designed to meet the mission-critical demands of application developers, data scientists, and enterprise business platforms.
+
+> curl -H "X-CMC_PRO_API_KEY: b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c" -H "Accept: application/json" -d "id=1,1027" -G https://pro-api.coinmarketcap.com/v1/cryptocurrency/info
+
+<br/>
+
+---
+
+# Neo
+
+Read more in the [documentation on ReadTheDocs.](https://neo-python.readthedocs.io/en/latest/)
+
+<br/>
+
+#### What does it currently do
 
     * This project aims to be a full port of the original C# NEO project
     * Run a Python based P2P node
 
-- What will it do
+### What will it do
 
-- Getting started
 
-* Please follow directions in the install section
+##### Please follow directions in the install section
     - The main functionality for this project is contained within the cli application [np-prompt](https://neo-python.readthedocs.io/en/latest/prompt.html)
 
-* Node with custom code
+##### Node with custom code
 
     - Take a look at the examples here: [https://github.com/CityOfZion/neo-python/tree/development/examples](https://github.com/CityOfZion/neo-python/tree/development/examples)
 
-* Sister projects
+##### Similar projects
 
     - [neo-python-rpc](https://github.com/CityOfZion/neo-python-rpc): NEO RPC client in Python
     - [neo-boa](https://github.com/CityOfZion/neo-boa): Write smart contracts with Python
 
 <br/>
 
-## Bitcoin
+--- 
 
-Read more in the 
-[documentation on ReadTheDocs.](https://github.com/alecalve/python-bitcoin-blockchain-parser)
+# Bitcoin
+
+Read more in the [documentation on ReadTheDocs.](https://github.com/alecalve/python-bitcoin-blockchain-parser)
 [View the whitepaper.](https://bitcoin.org/bitcoin.pdf)
 
 <br/>
 This Python 3 library provides a parser for the raw data stored by bitcoind. 
 
-* Features
+#### Features
 
    - Detects outputs types
    - Detects addresses in outputs
@@ -53,11 +135,11 @@ This Python 3 library provides a parser for the raw data stored by bitcoind.
    - Supports SegWit
    - Supports ordered block parsing
 
-* Examples
+#### Examples
 
 Below are two basic examples for parsing the blockchain. More examples are available in the examples directory.
 
-* Unordered Blocks
+#### Unordered Blocks
 
 This blockchain parser parses raw blocks saved in Bitcoin Core's `.blk` file format. Bitcoin Core does not guarantee that these blocks are saved in order. If your application does not require that blocks are parsed in order, the `Blockchain.get_unordered_blocks(...)` method can be used:
 
@@ -74,7 +156,7 @@ for block in blockchain.get_unordered_blocks():
             print("tx=%s outputno=%d type=%s value=%s" % (tx.hash, no, output.type, output.value))
 ```
 
-* Ordered Blocks
+#### Ordered Blocks
 
 If maintaining block order is necessary for your application, you should use the `Blockchain.get_ordered_blocks(...)` method. This method uses Bitcoin Core's LevelDB index to locate ordered block data in it's `.blk` files.
 
@@ -105,7 +187,9 @@ for block in blockchain.get_ordered_blocks(os.path.expanduser('~/.bitcoin/blocks
 
 <br/>
 
-## Ethereum 
+---
+
+# Ethereum 
 
 A Python implementation of 
 [web3.js](https://web3js.readthedocs.io/en/v1.2.4/).
@@ -121,37 +205,35 @@ A Python implementation of
  [View the change log on Github.](docs/releases.rst)
 
 <br/>
-**defaultBlock**
+#### defaultBlock
 <br/>
 **web3.eth.defaultBlock**
 <br/>
 The default block is used for certain methods. You can override it by passing in the defaultBlock as last parameter. The default value is “latest”.
 <br/>
+> web3.eth.getBalance()
+> web3.eth.getCode()
+> web3.eth.getTransactionCount()
+> web3.eth.getStorageAt()
+> web3.eth.call()
+> new web3.eth.Contract() -> myContract.methods.myMethod().call()
 
-    - web3.eth.getBalance()
-    - web3.eth.getCode()
-    - web3.eth.getTransactionCount()
-    - web3.eth.getStorageAt()
-    - web3.eth.call()
-    - new web3.eth.Contract() -> myContract.methods.myMethod().call()
-
-* Property
+#### Property
 
 Default block parameters can be one of the following:
 
-    Number: A block number
-    "genesis" - String: The genesis block
-    "latest" - String: The latest block (current head of the blockchain)
-    "pending" - String: The currently mined block (including pending transactions)
+>  Number: A block number
+>  "genesis" - String: The genesis block
+>  "latest" - String: The latest block (current head of the blockchain)
+>  "pending" - String: The currently mined block (including pending transactions)
 
 Default is "latest"
 <br/>
-- Example
+#### Example
 
-```
- web3.eth.defaultBlock;
+
+> web3.eth.defaultBlock;
 > "latest"
-
-// set the default block
-web3.eth.defaultBlock = 231;
+> // set the default block
+> web3.eth.defaultBlock = 231;
 ```

@@ -70,10 +70,7 @@ class Main extends Component {
 
                             {/* Homepage links to Blocks*/}
                             <Route exact path={'/'} component={Blocks}/>
-
-                            {/* About page*/}
-                            <Route exact path={'/about'} component={About}/>
-
+                            
                             {/* List of Blocks & Block/id Details */}
                             <Route exact path={'/blocks'} component={Blocks}/>
                             <Route exact path={'/block/:id'} component={Block}/>
@@ -90,7 +87,7 @@ class Main extends Component {
                             <Route exact path={'/outputs'} component={Outputs}/>
                             <Route exact path={'/output/:id'} component={Output}/>
 
-                            <Route exact path={'/line-graph'} component={LineGraph}/>
+                            <Route exact path={'/prices'} component={LineGraph}/>
 
                         </MDBContainer>
                     </div>

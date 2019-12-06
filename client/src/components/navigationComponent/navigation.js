@@ -56,8 +56,8 @@ class Navigation extends Component {
                             </MDBNavItem>
 
                             <MDBNavItem>
-                                {/* <MDBNavLink to="/about">About</MDBNavLink> */}
-                                <a href="/about" class="nav-link">About</a>
+                                {/* <MDBNavLink to="/prices">Prices</MDBNavLink> */}
+                                <a href="/prices" class="nav-link">Pirces</a>
                             </MDBNavItem>
 
                         </MDBNavbarNav>
