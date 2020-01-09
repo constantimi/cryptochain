@@ -90,7 +90,7 @@ class Main extends Component {
                         </MDBContainer>
                     </div>
 
-                    <div class="push"></div>
+                    <div className="push"></div>
                 </Router>
         );
     }

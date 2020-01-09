@@ -38,7 +38,7 @@ class BlockDetails extends Component {
 
         fetchBlockDataById(id)
             .then(json => {
-                console.log('data', json);
+                
                 this.setState({
                     block: json.data
                 });

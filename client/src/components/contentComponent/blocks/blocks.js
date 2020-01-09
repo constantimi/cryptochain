@@ -33,7 +33,7 @@ class Blocks extends Component {
 
         fetchBlocksData()
             .then(json => {
-                console.log('data', json);
+                
                 this.setState({
                     allBlocks: json.data
                 })

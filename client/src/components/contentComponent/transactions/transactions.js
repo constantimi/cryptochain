@@ -35,7 +35,6 @@ class Transactions extends Component {
 
         fetchTransactionsData()
             .then(json => {
-                console.log('data', json);
                 this.setState({
                     allTransactions: json.data
                 })

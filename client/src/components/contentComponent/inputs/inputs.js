@@ -32,7 +32,7 @@ class Inputs extends Component {
 
         fetchInputsData()
             .then(json => {
-                console.log('data', json);
+               
                 this.setState({
                     allInputs: json.data
                 })

@@ -3,6 +3,9 @@ import { MDBContainer } from 'mdbreact';
 
 import Chart from "chart.js";
 import { fetchBitcoin } from '../../../actions/fetchBitcoinPriceActions';
+import { fetchCurrentCryptoPrices } from '../../../actions/fetchCurrentCryptoPrices';
+import { fetchCoinsList } from '../../../actions/fetchCoinsList';
+import { fetchHistoricalCryptoData } from '../../../actions/fetchHistoricalCryptoData';
 
 
 class LineGraph extends Component{
@@ -19,8 +22,25 @@ class LineGraph extends Component{
 
         let linedata = [];
         let data = [];
-        let labels = [];     
+        let labels = [];    
+        
+        // Additional methods
+        fetchCurrentCryptoPrices().then(response => {
+          console.log('CurrentCryptoPrices API call response:', response);
+        }).catch((err) => {
+          console.log('CurrentCryptoPrices API call error:', err.message);
+        });
+        
+        fetchCoinsList().then(response => {
+          console.log('CoinsList API call response:', response);
+        }).catch((err) => {
+          console.log('CoinsList API call error:', err.message);
+        });
 
+        fetchHistoricalCryptoData('bitcoin');
+                
+        
+        // Fetching bitcoin price
         fetchBitcoin().then((json) => {
                 
                 linedata = json.data.bpi;

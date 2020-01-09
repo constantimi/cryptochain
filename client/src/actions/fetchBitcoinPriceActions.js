@@ -4,6 +4,7 @@
 //   origin. A web application executes a cross-origin HTTP request when it requests a resource that has a different
 //   origin (domain, protocol, and port) than its own origin.
 
+
 import axios from 'axios';
 
 
@@ -13,6 +14,10 @@ export function fetchBitcoin(){
 
     return axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=${moment(new Date()).subtract(displayMonthsBack, 'month').format('YYYY-MM-DD')}&end=${moment(new Date()).format('YYYY-MM-DD')}`, {
         method: 'GET',
-        mode: 'CORS'
+        mode: 'CORS',
+        json: true
     });
 }
+
+// Additional information:
+// https://kapeli.com/cheat_sheets/Axios.docset/Contents/Resources/Documents/index

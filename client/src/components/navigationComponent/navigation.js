@@ -37,28 +37,28 @@ class Navigation extends Component {
 
                             <MDBNavItem>
                                 {/* <MDBNavLink to="/prices">Prices</MDBNavLink> */}
-                                <a href="/prices" class="nav-link">Pirces</a>
+                                <a href="/prices" className="nav-link">Pirces</a>
                             </MDBNavItem>
 
 
                             <MDBNavItem>
                                 {/* <MDBNavLink to="/blocks">Blocks</MDBNavLink> */}
-                                <a href="/blocks" class="nav-link">Blocks</a>
+                                <a href="/blocks" className="nav-link">Blocks</a>
                             </MDBNavItem>
 
                             <MDBNavItem>
                                 {/* <MDBNavLink to="/transactions">Transactions</MDBNavLink> */}
-                                <a href="/transactions" class="nav-link">Transactions</a>
+                                <a href="/transactions" className="nav-link">Transactions</a>
                             </MDBNavItem>
 
                             <MDBNavItem>
                                 {/* <MDBNavLink to="/inputs">Inputs</MDBNavLink> */}
-                                <a href="/inputs" class="nav-link">Inputs</a>
+                                <a href="/inputs" className="nav-link">Inputs</a>
                             </MDBNavItem>
 
                             <MDBNavItem>
                                 {/* <MDBNavLink to="/outputs">Ouputs</MDBNavLink> */}
-                                <a href="/outputs" class="nav-link">Outputs</a>
+                                <a href="/outputs" className="nav-link">Outputs</a>
                             </MDBNavItem>
 
                         </MDBNavbarNav>

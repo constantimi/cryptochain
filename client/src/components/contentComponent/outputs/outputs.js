@@ -32,7 +32,7 @@ class Outputs extends Component {
 
         fetchOutputsData()
             .then(json => {
-                console.log('data', json);
+             
                 this.setState({
                     allOutputs: json.data
                 })

@@ -46,7 +46,7 @@ class InputDetails extends Component {
 
         fetchInputDataById(id)
             .then(json => {
-                console.log('data', json);
+                
                 this.setState({
                     input: json.data
                 })

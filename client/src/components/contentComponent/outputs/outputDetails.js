@@ -46,7 +46,7 @@ class OutputDetails extends Component {
 
         fetchOutputDataById(id)
             .then(json => {
-                console.log('data', json);
+               
                 this.setState({
                     output: json.data
                 })

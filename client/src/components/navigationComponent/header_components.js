@@ -29,7 +29,7 @@ class HeaderComponents extends Component {
 
         fetchTransactionsData()
                     .then(json => {
-                        console.log('data', json);
+                        
                         const transactions = json.data;
 
                         this.setState({
@@ -42,7 +42,7 @@ class HeaderComponents extends Component {
 
         fetchBlocksData()
                             .then(json => {
-                                console.log('data', json);
+                                
                                 const blocks = json.data;
 
                                 this.setState({
@@ -55,7 +55,7 @@ class HeaderComponents extends Component {
 
         fetchInputsData()
                             .then(json => {
-                                console.log('data', json);
+                                
                                 const inputs = json.data;
 
                                 this.setState({
@@ -68,7 +68,7 @@ class HeaderComponents extends Component {
 
         fetchOutputsData()
                              .then(json => {
-                                 console.log('data', json);
+                                
                                  const outputs = json.data;
 
                                  this.setState({
