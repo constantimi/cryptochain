@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { MDBContainer } from 'mdbreact';
+import { MDBContainer, MDBCol, MDBRow } from 'mdbreact';
 
 import Chart from "chart.js";
 import { fetchBitcoin } from '../../../actions/fetchBitcoinPriceActions';
@@ -14,28 +14,43 @@ class LineGraph extends Component{
 
     constructor(props) {
         super(props);
+        this.state = {
+          currentPrices: [],
+        };
+
+        this.getData = this.getData.bind(this);
     }
 
     // Method for fetching data
 
     getData() {
+      const {currentPrices} = this.state;
 
         let linedata = [];
         let data = [];
         let labels = [];    
         
         // Additional methods
-        fetchCurrentCryptoPrices().then(response => {
-          console.log('CurrentCryptoPrices API call response:', response);
-        }).catch((err) => {
-          console.log('CurrentCryptoPrices API call error:', err.message);
-        });
+        // CURRENT ERROR MESSAGE WITH PROXY
+        // fetchCurrentCryptoPrices().then(json => {
+          
+        //   console.log('CurrentCryptoPrices API call response: ', json);
+          
+        //   this.setState({
+        //     currentPrices: json.data
+        //   })
+          
+        // }).catch((err) => {
+        //   throw new Error('fetchCurrentCryptoPrices', err.message);
+        // });
         
-        fetchCoinsList().then(response => {
-          console.log('CoinsList API call response:', response);
-        }).catch((err) => {
-          console.log('CoinsList API call error:', err.message);
-        });
+
+        // fetchCoinsList().then(json => {
+        //   console.log('CoinsList API call response:', json);
+        // }).catch((err) => {
+        //   throw new Error('fetchCoinsList', err.message);
+        // });
+
 
         fetchHistoricalCryptoData('bitcoin');
                 
@@ -99,7 +114,7 @@ class LineGraph extends Component{
 
             })
             .catch(err => {
-                console.error('err', err)
+              throw new Error('fetchBitcoinPriceActions', err.message);
             });
 
     };
@@ -109,9 +124,39 @@ class LineGraph extends Component{
     }
 
     render () {
+      const {currentPrices} = this.state;
+
         return(
             <MDBContainer className="graph_container">
-                <canvas id="myChart" ref={this.chartRef}/>
+
+              <MDBRow>
+              
+                <MDBCol className="col col-9">
+                  {/* Bitcoin chart */}
+                  <canvas id="myChart" ref={this.chartRef}/>
+                </MDBCol>
+
+                <MDBCol className="col col-3">
+
+                  {/* {currentPrices.map((price, index) => {
+
+                    return (
+                      <MDBContainer> */}
+                        <MDBRow>
+                          <MDBCol className="col-2 col-sm-3"></MDBCol>
+                          <MDBCol className="col-2 col-sm-3 table-bordered">name</MDBCol>
+                          <MDBCol className="col-2 col-sm-3 table-bordered">price</MDBCol>
+                        </MDBRow>
+                      {/* </MDBContainer>
+                    );
+                    
+                  })} */}
+                  
+
+                </MDBCol>
+              
+              </MDBRow>
+
             </MDBContainer>
         );
     };

@@ -38,7 +38,7 @@ class Inputs extends Component {
                 })
             })
             .catch(err => {
-                console.error('err', err)
+                throw new Error('fetchInputData', err.message);
             });
     };
 

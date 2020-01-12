@@ -39,7 +39,7 @@ class Blocks extends Component {
                 })
             })
             .catch(err => {
-                console.error('err', err)
+                throw new Error('block.js');
             });
 
     };

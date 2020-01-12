@@ -52,7 +52,7 @@ class InputDetails extends Component {
                 })
             })
             .catch(err => {
-                console.error('err', err)
+                throw new Error('fetchInputDataById', err.message);
             });
 
     };

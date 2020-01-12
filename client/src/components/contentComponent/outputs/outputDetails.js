@@ -52,7 +52,7 @@ class OutputDetails extends Component {
                 })
             })
             .catch(err => {
-                console.error('err', err)
+                throw new Error('fetchOutputDataById', err.message);
             });
 
     };

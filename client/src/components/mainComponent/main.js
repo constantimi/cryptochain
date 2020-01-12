@@ -21,6 +21,9 @@ import Output from '../contentComponent/outputs/outputDetails';
 // chart page
 import LineGraph from '../contentComponent/charts/lineGraph';
 
+// error boundery
+import ErrorBoundary from '../errorBoundary/errorBoundary';
+
 
 
 class Main extends Component {
@@ -59,35 +62,36 @@ class Main extends Component {
         return (
                 <Router>
                     <div className="content">
+                        <ErrorBoundary>
+                        {/* Navigation */}
+                        <Navigation />
 
-                    {/* Navigation */}
-                    <Navigation />
+                            {/* Content */}
+                            <MDBContainer className="content-inside">
 
-                        {/* Content */}
-                        <MDBContainer className="content-inside">
+                                {/* Homepage links to Blocks*/}
+                                <Route exact path={'/'} component={LineGraph}/>
+                                
+                                {/* List of Blocks & Block/id Details */}
+                                <Route exact path={'/blocks'} component={Blocks}/>
+                                <Route exact path={'/block/:id'} component={Block}/>
 
-                            {/* Homepage links to Blocks*/}
-                            <Route exact path={'/'} component={LineGraph}/>
-                            
-                            {/* List of Blocks & Block/id Details */}
-                            <Route exact path={'/blocks'} component={Blocks}/>
-                            <Route exact path={'/block/:id'} component={Block}/>
+                                {/* List of Transactions & Transaction/id Details */}
+                                <Route exact path={'/transactions'} component={Transactions}/>
+                                <Route exact path={'/transaction/:id'} component={Transaction}/>
 
-                            {/* List of Transactions & Transaction/id Details */}
-                            <Route exact path={'/transactions'} component={Transactions}/>
-                            <Route exact path={'/transaction/:id'} component={Transaction}/>
+                                {/* List of Inputs & Input/id Details */}
+                                <Route exact path='/inputs' component={Inputs}/>
+                                <Route exact path='/input/:id' component={Input}/>
 
-                            {/* List of Inputs & Input/id Details */}
-                            <Route exact path='/inputs' component={Inputs}/>
-                            <Route exact path='/input/:id' component={Input}/>
+                                {/* List of Transactions & Transaction/id Details */}
+                                <Route exact path={'/outputs'} component={Outputs}/>
+                                <Route exact path={'/output/:id'} component={Output}/>
 
-                            {/* List of Transactions & Transaction/id Details */}
-                            <Route exact path={'/outputs'} component={Outputs}/>
-                            <Route exact path={'/output/:id'} component={Output}/>
+                                <Route exact path={'/prices'} component={LineGraph}/>
 
-                            <Route exact path={'/prices'} component={LineGraph}/>
-
-                        </MDBContainer>
+                            </MDBContainer>
+                        </ErrorBoundary>
                     </div>
 
                     <div className="push"></div>

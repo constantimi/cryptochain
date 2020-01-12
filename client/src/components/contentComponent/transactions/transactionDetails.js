@@ -62,7 +62,7 @@ class TransactionDetails extends Component {
                 })
             })
             .catch(err => {
-                console.error('err', err)
+                throw new Error('fetchTransactionDataById', err.message);
             });
 
     };

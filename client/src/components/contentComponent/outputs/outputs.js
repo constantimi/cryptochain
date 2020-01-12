@@ -38,7 +38,7 @@ class Outputs extends Component {
                 })
             })
             .catch(err => {
-                console.error('err', err)
+                throw new Error('fetchOutputData', err.message);
             });
     };
 

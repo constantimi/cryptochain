@@ -44,7 +44,7 @@ class BlockDetails extends Component {
                 });
             })
             .catch(err => {
-                console.error('err', err);
+                throw new Error('fetchBlockDataById');
             });
 
         fetchTransactionsData()
@@ -61,7 +61,7 @@ class BlockDetails extends Component {
                 });
             })
             .catch(err => {
-                console.error('err', err);
+                throw new Error('fetchTransactionsData');
             });
     };
 

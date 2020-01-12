@@ -23,7 +23,8 @@ export function fetchHistoricalCryptoData(cryptocoin){
     };
 
     // Fetching data
-    var dates = getDates(moment(new Date()).subtract(displayMonthsBack, 'month'), new Date());                                                                                                           
+    var dates = getDates(moment(new Date()).subtract(displayMonthsBack, 'month'), new Date());
+    var list = [];                                                                                                           
     dates.forEach(function(date) {
    
         axios.get(`https://api.coingecko.com/api/v3/coins/${cryptocoin}/history?date=${moment(date).format('DD-MM-YYYY')}`, {
@@ -32,9 +33,12 @@ export function fetchHistoricalCryptoData(cryptocoin){
             json: true
         }).then(response => { 
             console.log('fetchHistoricalCryptoData API call response:', response);
+            list.push(response);
         });
 
     });
+    
+    return list;
 }
 
 // Additional information:

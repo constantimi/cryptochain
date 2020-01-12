@@ -40,7 +40,7 @@ class Transactions extends Component {
                 })
             })
             .catch(err => {
-                console.error('err', err)
+                throw new Error('fetchTransactionsData', err.message);
             });
 
     };
