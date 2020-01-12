@@ -23,6 +23,8 @@ import LineGraph from '../contentComponent/charts/lineGraph';
 
 // error boundery
 import ErrorBoundary from '../errorBoundary/errorBoundary';
+// network detector
+import NetworkDetector from '../errorBoundary/networkDetector';
 
 
 
@@ -100,5 +102,5 @@ class Main extends Component {
     }
 }
 
-export default Main;
+export default NetworkDetector(Main);
 
