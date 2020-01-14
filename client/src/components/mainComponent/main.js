@@ -31,8 +31,8 @@ import ErrorBoundary from '../errorBoundary/errorBoundary';
 // network detector
 import NetworkDetector from '../errorBoundary/networkDetector';
 
-// material table
-import MaterialTable from '../contentComponent/tables/materialTable';
+// User form
+import UserForm from '../userComponent/UserForm';
 
 
 
@@ -74,31 +74,31 @@ class Main extends Component {
                     <div className="content">
                         <ErrorBoundary>
                         {/* Navigation */}
-                        <Navigation />
+                        {/* <Navigation /> */}
 
                             {/* Content */}
                             <MDBContainer className="content-inside">
 
                                 {/* Homepage links to Blocks*/}
-                                <Route exact path={'/'} component={MaterialTable}/>
+                                <Route exact path={'/'} component={UserForm}/>
                                 
                                 {/* List of Blocks & Block/id Details */}
-                                <Route exact path={'/blocks'} component={Blocks}/>
-                                <Route exact path={'/block/:id'} component={Block}/>
+                                {/* <Route exact path={'/blocks'} component={Blocks}/>
+                                <Route exact path={'/block/:id'} component={Block}/> */}
 
                                 {/* List of Transactions & Transaction/id Details */}
-                                <Route exact path={'/transactions'} component={Transactions}/>
-                                <Route exact path={'/transaction/:id'} component={Transaction}/>
+                                {/* <Route exact path={'/transactions'} component={Transactions}/>
+                                <Route exact path={'/transaction/:id'} component={Transaction}/> */}
 
                                 {/* List of Inputs & Input/id Details */}
-                                <Route exact path='/inputs' component={Inputs}/>
-                                <Route exact path='/input/:id' component={Input}/>
+                                {/* <Route exact path='/inputs' component={Inputs}/>
+                                <Route exact path='/input/:id' component={Input}/> */}
 
                                 {/* List of Transactions & Transaction/id Details */}
-                                <Route exact path={'/outputs'} component={Outputs}/>
-                                <Route exact path={'/output/:id'} component={Output}/>
+                                {/* <Route exact path={'/outputs'} component={Outputs}/>
+                                <Route exact path={'/output/:id'} component={Output}/> */}
 
-                                <Route exact path={'/prices'} component={LineGraph}/>
+                                {/* <Route exact path={'/prices'} component={LineGraph}/> */}
 
                             </MDBContainer>
                         </ErrorBoundary>
