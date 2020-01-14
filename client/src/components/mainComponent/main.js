@@ -9,22 +9,30 @@ import Navigation from '../navigationComponent/navigation';
 // transactions
 import Transactions from '../contentComponent/transactions/transactions';
 import Transaction from '../contentComponent/transactions/transactionDetails';
+
 // blocks
 import Blocks from '../contentComponent/blocks/blocks';
 import Block from '../contentComponent/blocks/blockDetails';
+
 // inputs
 import Inputs from '../contentComponent/inputs/inputs';
 import Input from '../contentComponent/inputs/inputDetails';
+
 // outputs
 import Outputs from '../contentComponent/outputs/outputs';
 import Output from '../contentComponent/outputs/outputDetails';
+
 // chart page
 import LineGraph from '../contentComponent/charts/lineGraph';
 
 // error boundery
 import ErrorBoundary from '../errorBoundary/errorBoundary';
+
 // network detector
 import NetworkDetector from '../errorBoundary/networkDetector';
+
+// material table
+import MaterialTable from '../contentComponent/tables/materialTable';
 
 
 
@@ -72,7 +80,7 @@ class Main extends Component {
                             <MDBContainer className="content-inside">
 
                                 {/* Homepage links to Blocks*/}
-                                <Route exact path={'/'} component={LineGraph}/>
+                                <Route exact path={'/'} component={MaterialTable}/>
                                 
                                 {/* List of Blocks & Block/id Details */}
                                 <Route exact path={'/blocks'} component={Blocks}/>
