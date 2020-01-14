@@ -102,5 +102,4 @@ class Main extends Component {
     }
 }
 
-export default NetworkDetector(Main);
-
+export default Main;

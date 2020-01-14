@@ -571,9 +571,9 @@ input {
   }
 }
 
-// chart.js
+// cryptocurrencies
 
-.graph_container {
+.prices_container {
 
   background: white;
   padding: 0;
@@ -589,5 +589,6 @@ input {
     padding-top: 3%;
     padding-right: 2%;
     padding-left: 2%;
+    text-align: center;
   }
 }
