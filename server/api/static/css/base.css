@@ -1,0 +1,80 @@
+/* Default css */
+html, body{
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    font-family: 'Cutive Mono', monospace;
+}
+
+li{
+    font-size: 18px;
+}
+
+a{
+    color: #4d4d4d;
+}
+
+/* Bootstrap Docs */
+.bs-url{
+    margin: 1%;
+    text-align: left;
+    font-size: 16px;
+}
+
+.bs-request{
+    color: #4d4d4d;
+}
+
+.bs-example {
+    position: relative;
+    padding: 15px 15px;
+    margin: 15px 15px;
+    border-color: #e5e5e5 #eee #eee;
+    border-style: solid;
+    border-width: 1px 0;
+    -webkit-box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
+    box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
+}
+.bs-example:after {
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    font-size: 16px;
+    font-weight: 10;
+    color: #4d4d4d;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    content: "Examples";
+}
+.bs-example-padded-bottom {
+    padding-bottom: 10px;
+}
+@media (min-width: 768px){
+  .bs-example {
+      margin-right: 0;
+      margin-left: 0;
+      background-color: #fff;
+      border-color: #ddd;
+      border-width: 1px;
+      border-radius: 4px 4px 0 0;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+  }
+}
+.bs-example+.code {
+    margin: -15px -15px 15px;
+    border-width: 0 0 1px;
+    border-radius: 0;
+}
+@media (min-width: 768px){
+  .bs-example+.code {
+      margin-top: -16px;
+      margin-right: 0;
+      margin-left: 0;
+      border-style: solid;
+      border-color:#ddd;
+      border-width: 1px;
+      border-bottom-right-radius: 4px;
+      border-bottom-left-radius: 4px;
+  }
+}

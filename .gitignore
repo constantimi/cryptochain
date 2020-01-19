@@ -17,16 +17,20 @@ bin-release/
 # should NOT be excluded as they contain compiler settings and other important
 # information for Eclipse / Flash Builder.
 
+# Client
 .idea/
 client/.idea/
 client/node_modules/
+client/.vscode/
 
+# Server
+server/__pycache__
 server/env/
+server/.vscode/
 server/api/__pycache__
 server/crypto/__pycache__
 server/api/migrations/__pycache__
-
-
+server/api/management/commands/__pycache__
 
 .gitignore
 

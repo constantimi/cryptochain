@@ -72,7 +72,7 @@ class Main extends Component {
                     <div className="content">
                         <ErrorBoundary>
                         {/* Navigation */}
-                        {/* <Navigation /> */}
+                        <Navigation />
 
                             {/* Content */}
                             <MDBContainer className="content-inside">
