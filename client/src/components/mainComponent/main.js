@@ -98,12 +98,12 @@ class Main extends Component {
 
                                 <Route exact path={'/prices'} component={LineGraph}/>
 
-                            </MDBContainer>
-                        </ErrorBoundary>
-                    </div>
+                             </MDBContainer>
+                         </ErrorBoundary>
+                     </div>
 
-                    <div className="push"></div>
-                </Router>
+                     <div className="push"></div>
+                 </Router>
         );
     }
 }
