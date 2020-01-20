@@ -31,6 +31,9 @@ server/api/__pycache__
 server/crypto/__pycache__
 server/api/migrations/__pycache__
 server/api/management/commands/__pycache__
+server/celerybeat.pid
+server/cryptochain
+server/logs/
 
 .gitignore
 

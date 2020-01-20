@@ -18,26 +18,9 @@ app = Celery('crypto')
 app.config_from_object('django.conf:settings')
 app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
 
-
-@app.task(bind=True)
-def debug_task(self):
-    print('Request: {0!r}'.format(self.request))
-
-@app.task
-def update_block():
-    call_command('pull_bitcoin', version=True)
-
-app.conf.beat_schedule = {
-    "update-block-task": {
-        "task": "periodic.update_block",
-        "schedule": 20.0
-    }
-}
-
-@periodic_task(run_every=(crontab(minute='*/15')), name="blocks_task", ignore_result=True)
-def block_task():
-    call_command('pull_bitcoin', version=True)
-
+@periodic_task(run_every=(crontab(minute='*/1')), name="update_blocks", ignore_result=True)
+def update_blocks():
+    call_command('pull_ethereum', version=True)
 
 if __name__ == '__main__':
     app.start()

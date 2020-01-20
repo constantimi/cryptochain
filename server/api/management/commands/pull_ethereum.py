@@ -136,6 +136,4 @@ def fetch_ethereum():
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
-        # Set the provider token
-        os.system('export WEB3_INFURA_PROJECT_ID=b062d82d9c5449e9a79a4b8071fa2353')
         fetch_ethereum()
