@@ -28,7 +28,7 @@ class LineGraph extends Component{
         let linedata = [];
         let data = [];
         let labels = [];    
-        
+                 
         // Additional methods
         // CURRENT ERROR MESSAGE WITH PROXY
         fetchCurrentCryptoPrices().then(json => {
@@ -42,7 +42,7 @@ class LineGraph extends Component{
         }).catch((err) => {
           throw new Error('fetchCurrentCryptoPrices', err.message);
         });
-        
+
 
         fetchCoinsList().then(json => {
           console.log('CoinsList API call response:', json);
