@@ -1,80 +1,109 @@
-/* Default css */
-html, body{
-    font-size: 20px;
-    width: 100%;
-    height: 100%;
-    font-family: 'Cutive Mono', monospace;
+@import "_config.css";
+
+/* Navigation */
+.nav-li{
+        font-size: var(--global-title-size);
 }
 
-li{
-    font-size: 18px;
+.nav-a {
+    color: var(--global-text-color);
 }
 
-a{
-    color: #4d4d4d;
-}
-
-/* Bootstrap Docs */
+/* Boostrap code */
 .bs-url{
     margin: 1%;
     text-align: left;
-    font-size: 16px;
+    font-size: var(--global-font-size);
 }
 
 .bs-request{
-    color: #4d4d4d;
+    color: var(--global-text-color);
 }
 
 .bs-example {
     position: relative;
-    padding: 15px 15px;
-    margin: 15px 15px;
-    border-color: #e5e5e5 #eee #eee;
+    padding: 15px;
+    margin-top: 15px;
+    margin-right: 15px;
+    margin-bottom: 14px;
+    margin-left: 15px;
+    border-color: var(--global-border-color);
     border-style: solid;
-    border-width: 1px 0;
-    -webkit-box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
-    box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
+    border-width: 1px;
+    -webkit-box-shadow: inset 0 3px 6px var(--shadow-color);
+    box-shadow: inset 0 3px 6px var(--shadow-color);
+    font-size: var(--global-code-size);
 }
 .bs-example:after {
-    top: 15px;
-    left: 15px;
-    right: 15px;
+    padding: 15px;
+    margin-top: 15px;
+    margin-right: 15px;
+    margin-bottom: 14px;
+    margin-left: 15px;
     font-size: 16px;
     font-weight: 10;
-    color: #4d4d4d;
+    color: var(--global-text-color);
     text-transform: uppercase;
     letter-spacing: 1px;
     content: "Examples";
+    font-size: var(--global-font-size);
 }
 .bs-example-padded-bottom {
     padding-bottom: 10px;
 }
-@media (min-width: 768px){
-  .bs-example {
-      margin-right: 0;
-      margin-left: 0;
-      background-color: #fff;
-      border-color: #ddd;
-      border-width: 1px;
-      border-radius: 4px 4px 0 0;
-      -webkit-box-shadow: none;
-      box-shadow: none;
-  }
+ 
+@media (max-width: 480px){
+    .code {
+        size: 1rem;
+        padding: 15px;
+        margin: -15px 15px 15px;
+        border-style: solid;
+        border-color: var(--global-border-color);
+        border-width: 1px;
+        border-radius: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        font-size: var(--global-code-size);
+    }
 }
-.bs-example+.code {
-    margin: -15px -15px 15px;
-    border-width: 0 0 1px;
-    border-radius: 0;
+
+@media (max-width: 954px){
+    .code {
+        padding: 15px;
+        margin: -15px 15px 15px;
+        border-style: solid;
+        border-color: var(--global-border-color);
+        border-width: 1px;
+        border-radius:0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        font-size: var(--global-code-size);
+    }
 }
-@media (min-width: 768px){
-  .bs-example+.code {
-      margin-top: -16px;
-      margin-right: 0;
-      margin-left: 0;
-      border-style: solid;
-      border-color:#ddd;
-      border-width: 1px;
-      border-bottom-right-radius: 4px;
-      border-bottom-left-radius: 4px;
-  }
+
+@media (min-width: 954px){
+    .code {
+        padding: 15px;
+        margin: -15px 15px 15px;
+        border-style: solid;
+        border-color: var(--global-border-color);
+        border-radius: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        font-size: var(--global-code-size);
+    }
+}
+
+@media (min-width: 1024px){
+    .code {
+        padding: 15px;
+        margin: -15px 15px 15px;
+        border-style: solid;
+        border-color: var(--global-border-color);
+        border-width: 1px;
+        border-radius: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        font-size: var(--global-code-size);
+    }
 }
