@@ -15,10 +15,6 @@
 
 <br/>
 
-![text altr](https://wallpaperaccess.com/full/1750753.jpg)
-
-<br/>
-
 ## Cryptonator
 
 Read more in the [cryptonator](https://www.cryptonator.com/api)
