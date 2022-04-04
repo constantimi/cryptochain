@@ -1,0 +1,137 @@
+{% extends "api/base.html" %}
+{% block content %}
+
+<div class="container">
+    
+    <h3>Cryptochain</h3>
+    <p>200 OK Success<p>
+
+    <ul class="nav nav-tabs">
+        <li class="nav-li active"><a class="nav-a" data-toggle="tab" href="#block">Block</a></li>
+        <li class="nav-li"><a class="nav-a" data-toggle="tab" href="#transaction">Transaction</a></li>
+        <li class="nav-li"><a class="nav-a" data-toggle="tab" href="#input">Input</a></li>
+        <li class="nav-li"><a class="nav-a" data-toggle="tab" href="#output">Output</a></li>
+    </ul>
+
+    <div class="tab-content">
+
+        <div id="block" class="tab-pane fade in active">
+
+            <div class="bs-url"><code class="bs-request">GET</code> blocks/</div>
+            <div class="bs-url"><code class="bs-request">GET</code> block/{id}</div>
+
+            <div class="bs-example bs-example-padded-bottom"></div>
+            <pre class="code" data-language="css">
+
+            Allow: GET
+            Content-Type: application/json
+            Vary: Accept
+
+            [
+                {
+                    "title": "Block 0",
+                    "hash": "0x556a316bf1ff430b684b9210a23c88566c25b7bcb75cf794a41dc6ac4210bfa8",
+                    "currency": "ETH",
+                    "previous_block": "0x74715fdae40515a343acc85431798cfeafd226087dbdf1c47fd943104d8e0198",
+                    "merkle_root": "0x938c817d0bdd9d91ad3779596aa1df799dee04f268de806448a539d2868f8957",
+                    "time": "2019-12-04T22:25:09.310314Z",
+                    "nonce": "0x4e5c6016fb649102",
+                    "difficulty": "2538091135709296",
+                    "n_tx": 104,
+                    "size": 37284,
+                    "block_index": 0,
+                    "height": 2538091135709296,
+                    "received_time": 1575498289
+                }
+            ]
+            </pre>
+        </div>
+        
+        <div id="transaction" class="tab-pane fade">
+
+            <div class="bs-url"><code class="bs-request">GET</code> transactions/</div>
+            <div class="bs-url"><code class="bs-request">GET</code> transaction/{id}</div>
+
+            <div class="bs-example bs-example-padded-bottom"></div>
+            <pre class="code" data-language="css">
+
+            Allow: GET
+            Content-Type: application/json
+            Vary: Accept
+
+            [
+                {
+                    "fee": 8285120000000000,
+                    "currency": "ETH",
+                    "nonce": "3607155",
+                    "block_number": 0,
+                    "tx_index": 0,
+                    "time": "2019-12-04T22:25:09.564897Z",
+                    "value": "0",
+                    "gas": 207128,
+                    "gas_price": 40000000000,
+                    "id": 0,
+                    "title": "Transaction 0",
+                    "date_posted": "2019-12-04T22:25:09.564946Z",
+                    "hash": "0x8fca9d6143a0ce82ee997cd01ebc1b5df45dc75111dc5fea2312a4a687dc28bb",
+                    "block_hash": "0x556a316bf1ff430b684b9210a23c88566c25b7bcb75cf794a41dc6ac4210bfa8",
+                    "belonging_to": "0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE",
+                    "relayed_by": "0x514910771AF9Ca656af840dff83E8264EcF986CA",
+                    "inputs": "0xa9059cbb000000000000000000000000ea0c0097e884b801c563f762354b6a684ec0",
+                    "outputs": null
+                }
+            ]
+            </pre>
+        </div>
+
+        <div id="input" class="tab-pane fade">
+
+            <div class="bs-url"><code class="bs-request">GET</code> inputs/</div>
+            <div class="bs-url"><code class="bs-request">GET</code> input/{id}</div>
+
+            <div class="bs-example bs-example-padded-bottom"></div>
+            <pre class="code" data-language="css">
+
+            Allow: GET
+            Content-Type: application/json
+            Vary: Accept
+
+            [
+                {
+                    "id_input": 0,
+                    "transaction": 0,
+                    "address": "0xa9059cbb000000000000000000000000ea0c0097e884b801c563f762354b6a68",
+                    "tx_hash": "0x8fca9d6143a0ce82ee997cd01ebc1b5df45dc75111dc5fea2312a4a687dc28bb"
+                }
+            ]
+            </pre>
+        </div>
+
+        <div id="output" class="tab-pane fade">
+
+            <div class="bs-url"><code class="bs-request">GET</code> outputs/</div>
+            <div class="bs-url"><code class="bs-request">GET</code> output/{id}</div>
+
+            <div class="bs-example bs-example-padded-bottom"></div>
+            <pre class="code" data-language="css">
+
+            Allow: GET
+            Content-Type: application/json
+            Vary: Accept
+            
+            [
+                {
+                    "id_output": 0,
+                    "transaction": 0,
+                    "value": 5000000000,
+                    "tx_hash": "4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b"
+                }
+            ]
+            </pre>
+        </div>
+
+    </div>
+
+  </div>
+    
+{% endblock content %}
