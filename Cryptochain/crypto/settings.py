@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 import os
-import pytz
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -45,8 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_celery_results',
-    'django_celery_beat',
+    'django_apscheduler',
     'rest_framework',
     'corsheaders',
     'crypto',
@@ -54,7 +52,6 @@ INSTALLED_APPS = [
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
-CELERY_RESULT_BACKEND = 'django-db'
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -89,14 +86,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'crypto.wsgi.application'
 
-# CELERY STUFF
-BROKER_URL = 'redis://localhost:6379'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379'
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TIMEZONE = pytz.timezone('UTC')
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
@@ -111,12 +100,21 @@ DATABASES = {
     }
 }
 
-CACHES = {
-    'default': {
-        'BACKEND': 'redis_cache.RedisCache',
-        'LOCATION': os.environ.get('REDIS_HOST') + ':' + os.environ.get('REDIS_PORT'),
-    },
-}
+# Format string for displaying run time timestamps in the Django admin site. The default
+# just adds seconds to the standard Django format, which is useful for displaying the timestamps
+# for jobs that are scheduled to run on intervals of less than one minute.
+# 
+# See https://docs.djangoproject.com/en/dev/ref/settings/#datetime-format for format string
+# syntax details.
+APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
+
+# Maximum run time allowed for jobs that are triggered manually via the Django admin site, which
+# prevents admin site HTTP requests from timing out.
+# 
+# Longer running jobs should probably be handed over to a background task processing library
+# that supports multiple background worker processes instead (e.g. Dramatiq, Celery, Django-RQ,
+# etc. See: https://djangopackages.org/grids/g/workers-queues-tasks/ for popular options).
+APSCHEDULER_RUN_NOW_TIMEOUT = 25  # Seconds
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators

@@ -119,27 +119,30 @@ def send_data():
         block_number += 1
 
 
+def fetch_neo():
+    """Is connected with Database"""
+    print('the script started ...')
+
+    """Use MainNet"""
+    settings.setup_mainnet()
+
+    """Setup the Blockchain"""
+    blockchain = LevelDBBlockchain(settings.chain_leveldb_path)
+    Blockchain.RegisterBlockchain(blockchain)
+    dbloop = task.LoopingCall(Blockchain.Default())
+    dbloop.start(.1)
+    NodeLeader.Instance().Start()
+
+    """Start a thread with custom code"""
+    d = threading.Thread(name='daemon_send_data', target=send_data,
+                            args=())
+    d.setDaemon(True)  # daemonizing the thread will kill it when the main thread is quit
+    d.start()
+
+    """Run all the things (blocking call)"""
+    reactor.run()
+    logger.info("Shutting down.")
+
 class Command(BaseCommand):
     def handle(self, *args, **options):
-        """Is connected with Database"""
-        print('the script started ...')
-
-        """Use MainNet"""
-        settings.setup_mainnet()
-
-        """Setup the Blockchain"""
-        blockchain = LevelDBBlockchain(settings.chain_leveldb_path)
-        Blockchain.RegisterBlockchain(blockchain)
-        dbloop = task.LoopingCall(Blockchain.Default())
-        dbloop.start(.1)
-        NodeLeader.Instance().Start()
-
-        """Start a thread with custom code"""
-        d = threading.Thread(name='daemon_send_data', target=send_data,
-                             args=())
-        d.setDaemon(True)  # daemonizing the thread will kill it when the main thread is quit
-        d.start()
-
-        """Run all the things (blocking call)"""
-        reactor.run()
-        logger.info("Shutting down.")
+        fetch_neo()
