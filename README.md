@@ -1,6 +1,6 @@
-# Cryptochain
+## Cryptochain
 
-### Cryptochain is an opensource platform for deep explanation in the crypro technologies.
+Cryptochain is an opensource platform for deep explanation in the crypro technologies.
 
 ### Command Reference
 
@@ -260,3 +260,7 @@ Default is "latest"
 `
 $ web3.eth.defaultBlock = 231;
 `
+
+### Repo Activity
+
+![Alt](https://repobeats.axiom.co/api/embed/d7bf91e7e13197543ea980edbd1ba3e1aeb6b67e.svg "Repobeats analytics image")
